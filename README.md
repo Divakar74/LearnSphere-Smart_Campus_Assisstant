@@ -2,87 +2,87 @@ Smart Campus Assistant
 
 A lightweight AI-powered academic assistant that helps students upload, organize, summarize, search, and learn from their study materials. The system uses Retrieval-Augmented Generation (RAG), intelligent document processing, quizzes, flashcards, and learning analytics to enhance study efficiency.
 
-Features
+# Features
 
-AI-based document processing (PDF, DOCX, PPTX, TXT)
+-> AI-based document processing (PDF, DOCX, PPTX, TXT)
 
-AI-generated concise and detailed summaries
+-> AI-generated concise and detailed summaries
 
-Folder-based document organization
+-> Folder-based document organization
 
-JWT authentication with secure protected routes
+-> JWT authentication with secure protected routes
 
-In-app PDF/TXT document viewer
+-> In-app PDF/TXT document viewer
 
-RAG-powered chat for contextual Q&A
+-> RAG-powered chat for contextual Q&A
 
-Auto-generated quizzes and flashcards
+-> Auto-generated quizzes and flashcards
 
-Learning dashboard with progress analytics
+-> Learning dashboard with progress analytics
 
-Technology Stack
+# Technology Stack
 Backend
 
-Python (Flask)
+->Python (Flask)
 
-Flask-JWT-Extended
+->Flask-JWT-Extended
 
-SQLite (user and metadata storage)
+->SQLite (user and metadata storage)
 
-ChromaDB (vector store for embeddings)
+->ChromaDB (vector store for embeddings)
 
-Sentence-Transformers
+->Sentence-Transformers
 
-OpenAI API
+->OpenAI API
 
-pdfplumber, python-docx, python-pptx
+->pdfplumber, python-docx, python-pptx
 
 Frontend
 
-React 18 with Vite
+->React 18 with Vite
 
-TailwindCSS
+->TailwindCSS
 
-React Router
+->React Router
 
-Axios
+->Axios
 
-Recharts
+->Recharts
 
-Project Architecture
-Document Pipeline
+# Project Architecture
+# Document Pipeline
 
-File upload to temporary storage
+->File upload to temporary storage
 
-Text extraction from PDF/DOCX/PPTX/TXT
+->Text extraction from PDF/DOCX/PPTX/TXT
 
-Semantic chunking
+->Semantic chunking
 
-Embedding generation using sentence-transformers
+->Embedding generation using sentence-transformers
 
-Storage of embeddings in ChromaDB and metadata in SQLite
+->Storage of embeddings in ChromaDB and metadata in SQLite
 
-RAG Chat Flow
+# RAG Chat Flow
 
-User query is converted into an embedding
+->User query is converted into an embedding
 
-Vector similarity search retrieves top relevant chunks
+->Vector similarity search retrieves top relevant chunks
 
-Retrieved context is assembled
+->Retrieved context is assembled
 
-Context and query are sent to the OpenAI model
+->Context and query are sent to the OpenAI model
 
-A context-grounded response is returned
+->A context-grounded response is returned
 
-Learning System
+# Learning System
 
-Quiz generation based on document content
+->Quiz generation based on document content
 
-Flashcard creation with spaced repetition scheduling
+->Flashcard creation with spaced repetition scheduling
 
-User progress and analytics tracking
+->User progress and analytics tracking
 
-Installation
+# Installation
 Backend
 cd backend
 python -m venv venv
@@ -100,7 +100,7 @@ cd frontend/learnsphere
 npm install
 npm run dev
 
-Core API Endpoints
+# Core API Endpoints
 
 Authentication: /api/auth/register, /api/auth/login
 
@@ -120,7 +120,7 @@ Flashcards: /api/flashcards
 
 Progress Analytics: /api/progress
 
-Folder Structure
+# Folder Structure
 backend/
   app.py
   routes/
@@ -131,7 +131,7 @@ backend/
 frontend/
   learnsphere/
 
-Screenshots
+# Screenshots
 1.Landing Page
 <img width="1898" height="857" alt="image" src="https://github.com/user-attachments/assets/b2a755d1-5042-46a5-97e3-c6f5284bf866" />
 2.Document Upload component
