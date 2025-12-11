@@ -1,0 +1,82 @@
+{
+  "default_user": {
+    "total_quizzes_taken": 1,
+    "total_score": 3,
+    "average_score": 60.0,
+    "topics_progress": {
+      "General": {
+        "quizzes_taken": 1,
+        "total_score": 3,
+        "average_score": 60.0,
+        "best_score": 60.0
+      }
+    },
+    "quiz_history": [
+      {
+        "quiz_id": "default_user_General_all",
+        "topic": "General",
+        "score": 3,
+        "total_questions": 5,
+        "percentage": 60.0,
+        "documents_used": [
+          "all"
+        ],
+        "completed_at": "2025-12-07T20:50:33.845985"
+      }
+    ]
+  },
+  "1": {
+    "total_quizzes_taken": 1,
+    "total_score": 3,
+    "average_score": 60.0,
+    "topics_progress": {
+      "General": {
+        "quizzes_taken": 1,
+        "total_score": 3,
+        "average_score": 60.0,
+        "best_score": 60.0
+      }
+    },
+    "quiz_history": [
+      {
+        "quiz_id": "quiz_1765357892447",
+        "topic": "General",
+        "score": 3,
+        "total_questions": 5,
+        "percentage": 60.0,
+        "documents_used": [
+          "2.7_Distributed_Database_Systems.pdf",
+          "2.1_Distributed_File_System.pdf"
+        ],
+        "completed_at": "2025-12-10T14:41:32.766140"
+      }
+    ]
+  },
+  "1": {
+    "total_quizzes_taken": 1,
+    "total_score": 3,
+    "average_score": 60.0,
+    "topics_progress": {
+      "General": {
+        "quizzes_taken": 1,
+        "total_score": 3,
+        "average_score": 60.0,
+        "best_score": 60.0
+      }
+    },
+    "quiz_history": [
+      {
+        "quiz_id": "quiz_1765434201471",
+        "topic": "General",
+        "score": 3,
+        "total_questions": 5,
+        "percentage": 60.0,
+        "documents_used": [
+          "infrastructure_security.pdf",
+          "2.7_Distributed_Database_Systems.pdf"
+        ],
+        "completed_at": "2025-12-11T11:53:22.053588"
+      }
+    ]
+  }
+}

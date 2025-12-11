@@ -1,0 +1,820 @@
+Data Preprocessing
+What Is Data Mining?
+Many people treat data mining as a synonym for another popularly used term, knowledge discovery from data, or KDD, while others view data mining as merely an essential step in the process of knowledge discovery. 
+8/5/2025
+2
+The knowledge discovery process is shown in Figure below as an iterative sequence  
+
+8/5/2025
+3
+The knowledge discovery process has the following steps:
+1. Data cleaning (to remove noise and inconsistent data) 
+2. Data integration (where multiple data sources may be combined)
+3. Data selection (where data relevant to the analysis task are retrieved from the database) 
+4. Data transformation (where data are transformed and consolidated into forms appropriate for mining by performing summary or aggregation operations)
+ 5. Data mining (an essential process where intelligent methods are applied to extract data patterns) 
+6. Pattern evaluation (to identify the truly interesting patterns representing knowledge based on interestingness measures)
+7. Knowledge presentation (where visualization and knowledge representation techniques are used to present mined knowledge to users)
+8/5/2025
+4
+
+Steps 1 through 4 are different forms of data preprocessing, where data are prepared for mining.
+The data mining step may interact with the user or a knowledge base.
+The interesting patterns are presented to the user and may be stored as new knowledge in the knowledge base.
+“Data mining is the process of discovering interesting patterns and knowledge from large amounts of data. The data sources can include databases, data warehouses, the Web, other information repositories, or data that are streamed into the system dynamically” .
+8/5/2025
+5
+Data Preprocessing-
+Today’s real-world databases are highly susceptible to noisy, missing, and inconsistent data due to their typically huge size and their origin from multiple, heterogenous sources. 
+Low-quality data will lead to low-quality mining results. 
+“How can the data be preprocessed in order to help improve the quality of the data and, consequently, of the mining results? 
+How can the data be preprocessed so as to improve the efficiency and ease of the mining process?” 
+There are several data preprocessing techniques. 
+Data cleaning can be applied to remove noise and correct inconsistencies in data. 
+8/5/2025
+6
+Data integration merges data from multiple sources into a coherent data store such as a data warehouse. 
+Data reduction can reduce data size by, aggregating, eliminating redundant features, or clustering.
+ Data transformations (e.g., normalization) may be applied, where data are scaled to fall within a smaller range like 0.0 to 1.0. 
+This can improve the accuracy and efficiency of mining algorithms.
+8/5/2025
+7
+Data Quality: Why Preprocess the Data? 
+Data have quality if they satisfy the requirements of the intended use. 
+There are many factors comprising data quality, including accuracy, completeness, consistency, timeliness, believability, and interpretability.
+Imagine that you are a manager at AllElectronics and have been charged with analyzing the company’s data with respect to your branch’s sales. 
+You immediately set out to perform this task. 
+You carefully inspect the company’s database and data warehouse, identifying and selecting the attributes or dimensions (e.g., item, price, and units sold) to be included in your analysis.
+ You notice that several of the attributes for various tuples have no recorded value. 
+8/5/2025
+8
+For your analysis, you would like to include information as to whether each item purchased was advertised as on sale, yet you discover that this information has not been recorded. 
+Furthermore, users of your database system have reported errors, unusual values, and inconsistencies in the data recorded for some transactions.
+In other words, the data you wish to analyze by data mining techniques are incomplete (lacking attribute values of certain attributes of interest, or containing only aggregate data); inaccurate or noisy (containing errors, or values that deviate from the expected); and inconsistent (e.g., containing discrepancies in the department codes used to categorize items). 
+8/5/2025
+9
+This scenario illustrates three of the elements defining data quality: accuracy, completeness, and consistency.
+Inaccurate, incomplete, and inconsistent data are commonplace properties of large real-world databases and data warehouses. 
+There are many possible reasons for inaccurate data (i.e., having incorrect attribute values). 
+The data collection instruments used may be faulty. 
+There may have been human or computer errors occurring at data entry. 
+Users may purposely submit incorrect data values for mandatory fields when they do not wish to submit personal information (e.g., by choosing the default value “January 1” displayed for birthday). 
+This is known as disguised missing data. 
+8/5/2025
+10
+Errors in data transmission can also occur. 
+Incorrect data may also result from inconsistencies in naming conventions or data codes, or inconsistent formats for input fields (e.g., date). 
+Duplicate tuples also require data cleaning.
+Incomplete data can occur for a number of reasons. 
+Attributes of interest may not always be available, such as customer information for sales transaction data. 
+Other data may not be included simply because they were not considered important at the time of entry.
+ Relevant data may not be recorded due to a misunderstanding or because of equipment malfunctions.
+ 
+8/5/2025
+11
+Data that were inconsistent with other recorded data may have been deleted.
+ Furthermore, the recording of the data history or modifications may have been overlooked. 
+Missing data, particularly for tuples with missing values for some attributes, may need to be inferred. 
+Other factors affecting the data quality are: timeliness, believability and interpretability.
+Suppose that you are overseeing the distribution of monthly sales bonuses to the top sales representatives at AllElectronics.
+Several sales representatives, however, fail to submit their sales records on time at the end of the month.
+The fact that the month-end data are not updated in a timely fashion has a negative impact on the data quality.
+8/5/2025
+12
+Believability reflects how much the data are trusted by users, while interpretability reflects how easy the data are understood.
+Suppose that a database, at one point, had several errors, all of which have since been corrected. 
+The past errors, however, had caused many problems for sales department users, and so they no longer trust the data. 
+The data also use many accounting codes, which the sales department does not know how to interpret.
+8/5/2025
+13
+Major Tasks in Data Preprocessing
+The major steps involved in data preprocessing are: data cleaning, data integration, data reduction, and data transformation. 
+Data cleaning routines work to “clean” the data by filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies. 
+If users believe the data are dirty, they are unlikely to trust the results of any data mining that has been applied. 
+Furthermore, dirty data can cause confusion for the mining procedure, resulting in unreliable output. 
+Although most mining routines have some procedures for dealing with incomplete or noisy data, they are not always robust. 
+Instead, they may concentrate on avoiding overfitting the data to the function being modeled.
+Therefore, a useful preprocessing step is to run your data through some data cleaning routines.
+8/5/2025
+14
+Suppose that you would like to include data from multiple sources in your analysis. This would involve integrating multiple databases, data cubes, or files (i.e., data integration). 
+Yet some attributes representing a given concept may have different names in different databases, causing inconsistencies and redundancies.
+ For example, the attribute for customer identification may be referred to as customer id in one data store and cust id in another. 
+Naming inconsistencies may also occur for attribute values. 
+For example, the same first name could be registered as “Bill” in one database, “William” in another, and “B.” in a third.
+8/5/2025
+15
+Having a large amount of redundant data may slow down or confuse the knowledge discovery process. 
+Clearly, in addition to data cleaning, steps must be taken to help avoid redundancies during data integration. 
+Typically, data cleaning and data integration are performed as a preprocessing step when preparing data for a data warehouse. 
+Additional data cleaning can be performed to detect and remove redundancies that may have resulted from data integration.
+Erroneous data and Missing data in data set
+8/5/2025
+16
+If the data set selected is too large, it will slow down the data mining process. 
+“Is there a way to reduce the size of  data set without risking the data mining results?”
+Data reduction obtains a reduced representation of the data set that is much smaller in volume, yet produces the same (or almost the same) analytical results.
+ Data reduction strategies include dimensionality reduction and numerosity reduction. 
+In dimensionality reduction, data encoding schemes are applied so as to obtain a reduced or “compressed” representation of the original data.
+ Examples include data compression techniques (e.g., wavelet transforms and principal components analysis), attribute subset selection (e.g., removing irrelevant attributes), and attribute construction (e.g., where a small set of more useful attributes is derived from the original set). 
+8/5/2025
+17
+In numerosity reduction, the data are replaced by alternative, smaller representations using parametric models (e.g., regression or log-linear models) or nonparametric models (e.g., histograms, clusters, sampling, or data aggregation).
+Data mining methods provide better results if the data to be analyzed have been normalized, that is, scaled to a smaller range such as [0.0, 1.0].
+Discretization and concept hierarchy generation can also be useful, where raw data values for attributes are replaced by ranges or higher conceptual levels. 
+For example, raw values for age may be replaced by higher-level concepts, such as youth, adult, or senior. 
+Discretization and concept hierarchy generation are powerful tools for data mining in that they allow data mining at multiple abstraction levels. 
+Normalization, data discretization, and concept hierarchy generation are forms of data transformation.
+8/5/2025
+18
+Figure below summarizes the data preprocessing steps described here
+8/5/2025
+19
+Data Cleaning
+Real-world data tend to be incomplete, noisy, and inconsistent.  
+Data cleaning routines attempt to fill in missing values, smooth out noise while identifying outliers, and correct inconsistencies in the data. 
+8/5/2025
+20
+Missing Values 
+Imagine that you need to analyze AllElectronics sales and customer data. 
+You note that many tuples have no recorded value for several attributes such as customer income. How can you go about filling in the missing values for this attribute?
+ Let’s look at the following methods. 
+1. Ignore the tuple: This is usually done when the class label is missing (assuming the mining task involves classification). This method is not very effective, unless the tuple contains several attributes with missing values. It is especially poor when the percentage of missing values per attribute varies considerably. By ignoring the tuple, we do not make use of the remaining attributes’ values in the tuple. Such data could have been useful to the task at hand.
+2. Fill in the missing value manually: In general, this approach is time consuming and may not be feasible given a large data set with many missing values
+8/5/2025
+21
+3. Use a global constant to fill in the missing value: Replace all missing attribute values by the same constant such as a label like “Unknown” or −∞. If missing values are replaced by, say, “Unknown,” then the mining program may mistakenly think that they form an interesting concept, since they all have a value in common—that of “Unknown.” Hence, although this method is simple, it is not foolproof. 
+4. Use a measure of central tendency for the attribute (e.g., the mean or median) to fill in the missing value: measures of central tendency, which indicate the “middle” value of a data distribution. For normal (symmetric) data distributions, the mean can be used, while skewed data distribution should employ the median.  
+8/5/2025
+22
+5. Use the attribute mean or median for all samples belonging to the same class as the given tuple: For example, if classifying customers according to credit risk, we may replace the missing value with the mean income value for customers in the same credit risk category as that of the given tuple. If the data distribution for a given class is skewed, the median value is a better choice. 
+6. Use the most probable value to fill in the missing value: This may be determined with regression, inference-based tools using a Bayesian formalism, or decision tree induction. For example, using the other customer attributes in your data set, you may construct a decision tree to predict the missing values for income.
+8/5/2025
+23
+Noisy Data
+“What is noise?” Noise is a random error or variance in a measured variable. 
+Given a numeric attribute such as, price, how can we “smooth” out the data to remove the noise? 
+Let’s look at the following data smoothing techniques. 
+Binning: Binning methods smooth a sorted data value by consulting its “neighborhood,” that is, the values around it. 
+The sorted values are distributed into a number of “buckets,” or bins. 
+Because binning methods consult the neighborhood of values, they perform local smoothing.
+8/5/2025
+24
+Figure below illustrates some binning techniques.
+8/5/2025
+25
+In this example, the data for price are first sorted and then partitioned into equal-frequency bins of size 3 (i.e., each bin contains three values).
+ In smoothing by bin means, each value in a bin is replaced by the mean value of the bin. 
+For example, the mean of the values 4, 8, and 15 in Bin 1 is 9. 
+Therefore, each original value in this bin is replaced by the value 9. 
+Similarly, smoothing by bin medians can be employed, in which each bin value is replaced by the bin median. 
+In smoothing by bin boundaries, the minimum and maximum values in a given bin are identified as the bin boundaries.
+Each bin value is then replaced by the closest boundary value. 
+In general, the larger the width, the greater the effect of the smoothing. 
+8/5/2025
+26
+Regression: Data smoothing can also be done by regression, a technique that conforms data values to a function. 
+Linear regression involves finding the “best” line to fit two attributes (or variables) so that one attribute can be used to predict the other.
+ Multiple linear regression is an extension of linear regression, where more than two attributes are involved and the data are fit to a multidimensional surface. 
+8/5/2025
+27
+Outlier analysis: Outliers may be detected by clustering, for example, where similar values are organized into groups, or “clusters.”
+ Intuitively, values that fall outside of the set of clusters may be considered outliers.
+8/5/2025
+28
+Data Cleaning as a Process 
+Missing values, noise, and inconsistencies contribute to inaccurate data. 
+So far, we have looked at techniques for handling missing data and for smoothing data.
+ “But data cleaning is a big job.
+ What about data cleaning as a process?
+How exactly does one proceed in tackling this task? 
+Are there any tools out there to help?” 
+The first step in data cleaning as a process is discrepancy detection. 
+8/5/2025
+29
+Discrepancies can be caused by several factors, including poorly designed data entry forms that have many optional fields, human error in data entry, deliberate errors (e.g., respondents not wanting to divulge information about themselves), and data decay (e.g., outdated addresses). 
+Discrepancies may also arise from inconsistent data representations and inconsistent use of codes. 
+Other sources of discrepancies include errors in instrumentation devices that record data and system errors.
+There may also be inconsistencies due to data integration (e.g., where a given attribute can have different names in different databases).
+8/5/2025
+30
+“So, how can we proceed with discrepancy detection?” 
+As a starting point, use any knowledge you may already have regarding properties of the data. 
+Such knowledge or “data about data” is referred to as metadata. 
+For example, what are the data type and domain of each attribute? 
+What are the acceptable values for each attribute?
+What is the range of values? 
+Do all values fall within the expected range? 
+8/5/2025
+31
+Are there any known dependencies between attributes? 
+In this step, you may write your own scripts and/or use some of the tools. 
+From this, you may find noise, outliers, and unusual values that need investigation.
+As a data analyst, you should be on the lookout for the inconsistent use of codes and any inconsistent data representations (e.g., “2010/12/25” and “25/12/2010” for date).
+8/5/2025
+32
+The data should also be examined regarding unique rules, consecutive rules, and null rules. 
+A unique rule says that each value of the given attribute must be different from all other values for that attribute.
+ A consecutive rule says that there can be no missing values between the lowest and highest values for the attribute, and that all values must also be unique (e.g., as in check numbers). 
+A null rule specifies the use of blanks, question marks, special characters, or other strings that may indicate the null condition (e.g., where a value for a given attribute is not available), and how such values should be handled. 
+8/5/2025
+33
+Reasons for missing values may include
+the person originally asked to provide a value for the attribute refuses and/or finds that the information requested is not applicable (e.g., a license number attribute left blank by nondrivers); 
+the data entry person does not know the correct value; or
+the value is to be provided by a later step of the process. 
+The null rule should specify how to record the null condition, for example, such as to store zero for numeric attributes, a blank for character attributes, or any other conventions that may be in use (e.g., entries like “don’t know” or “?” should be transformed to blank).
+8/5/2025
+34
+There are a number of different commercial tools that can aid in the discrepancy detection step. 
+Data scrubbing tools use simple domain knowledge (e.g., knowledge of postal addresses and spell-checking) to detect errors and make corrections in the data. 
+These tools rely on parsing and fuzzy matching techniques when cleaning data from multiple sources. 
+Data auditing tools find discrepancies by analyzing the data to discover rules and relationships, and detecting data that violate such conditions.
+ Some data inconsistencies may be corrected manually using external references. 
+For example, errors made at data entry may be corrected by performing a paper trace. 
+8/5/2025
+35
+Most errors, however, will require data transformations. 
+That is, once we find discrepancies, we typically need to define and apply (a series of) transformations to correct them.
+Commercial tools can assist in the data transformation step. 
+ETL (extraction/transformation/loading) tools allow users to specify transforms through a graphical user interface (GUI). 
+These tools typically support only a restricted set of transforms so that, often, we may also choose to write custom scripts for this step of the data cleaning process.
+8/5/2025
+36
+The two-step process of discrepancy detection and data transformation (to correct discrepancies) iterates. 
+This process, however, is error-prone and time consuming. 
+Some transformations may introduce more discrepancies. Some nested discrepancies may only be detected after others have been fixed. 
+For example, a typo such as “20010” in a year field may only surface once all date values have been converted to a uniform format. 
+Transformations are often done as a batch process while the user waits without feedback. 
+8/5/2025
+37
+Only after the transformation is complete can the user go back and check that no new anomalies have been mistakenly created. 
+Typically, numerous iterations are required before the user is satisfied. 
+Any tuples that cannot be automatically handled by a given transformation are typically written to a file without any explanation regarding the reasoning behind their failure.
+ As a result, the entire data cleaning process also suffers from a lack of interactivity.
+8/5/2025
+38
+New approaches to data cleaning emphasize increased interactivity. 
+Potter’s Wheel, for example, is a publicly available data cleaning tool that integrates discrepancy detection and transformation.
+ Users gradually build a series of transformations by composing and debugging individual transformations, one step at a time, on a spreadsheet-like interface. 
+The transformations can be specified graphically or by providing examples. 
+Results are shown immediately on the records that are visible on the screen. 
+The user can choose to undo the transformations, so that transformations that introduced additional errors can be “erased.” 
+The tool automatically performs discrepancy checking in the background on the latest transformed view of the data.
+ Users can gradually develop and refine transformations as discrepancies are found, leading to more effective and efficient data cleaning. 
+8/5/2025
+39
+Data Integration 
+Data mining often requires data integration—the merging of data from multiple data stores.
+Careful integration can help reduce and avoid redundancies and inconsistencies in the resulting data set. 
+This can help improve the accuracy and speed of the subsequent data mining process.
+The semantic heterogeneity and structure of data pose great challenges in data integration. 
+How can we match schema and objects from different sources? This is the essence of the entity identification problem.
+Are any attributes correlated? 
+8/5/2025
+40
+Entity Identification Problem 
+It is likely that your data analysis task will involve data integration, which combines data from multiple sources into a coherent data store, as in data warehousing. 
+These sources may include multiple databases, data cubes, or flat files. 
+There are a number of issues to consider during data integration.
+ Schema integration and object matching can be tricky. 
+How can equivalent real-world entities from multiple data sources be matched up? 
+This is referred to as the entity identification problem. 
+For example, how can the data analyst or the computer be sure that customer id in one database and cust number in another refer to the same attribute? 
+8/5/2025
+41
+Examples of metadata for each attribute include the name, meaning, data type, and range of values permitted for the attribute, and null rules for handling blank, zero, or null values .
+Such metadata can be used to help avoid errors in schema integration.
+The metadata may also be used to help transform the data.
+Hence, this step also relates to data cleaning. 
+When matching, attributes from one database to another during integration, special attention must be paid to the structure of the data. 
+This is to ensure that any attribute functional dependencies and referential constraints in the source system match those in the target system.
+For example, in one system, a discount may be applied to the order, whereas in another system it is applied to each individual line item within the order.
+If this is not caught before integration, items in the target system may be improperly discounted. 
+8/5/2025
+42
+Redundancy and Correlation Analysis 
+Redundancy is another important issue in data integration.
+ An attribute may be redundant if it can be “derived” from another attribute or set of attributes. 
+Inconsistencies in attribute or dimension naming can also cause redundancies in the resulting data set. 
+Some redundancies can be detected by correlation analysis. 
+Given two attributes, such analysis can measure how strongly one attribute implies the other, based on the available data. 
+For nominal data, we use the χ 2 (chi-square) test. 
+For numeric attributes, we can use the correlation coefficient and covariance, both of which access how one attribute’s values vary from those of another.
+8/5/2025
+43
+χ 2 Correlation Test for Nominal Data 
+For nominal data, a correlation relationship between two attributes, A and B, can be discovered by a χ 2 (chi-square) test. 
+Suppose A has c distinct values, namely a1,a2,...ac .
+B has r distinct values, namely b1,b2,...br . 
+The data tuples described by A and B can be shown as a contingency table, with the c values of A making up the columns and the r values of B making up the rows. 
+Let (Ai ,Bj) denote the joint event that attribute A takes on value ai and attribute B takes on value bj , that is, where (A = ai ,B = bj).
+Each and every possible (Ai ,Bj) joint event has its own cell (or slot) in the table. 
+8/5/2025
+44
+The χ 2 value (also known as the Pearson χ 2 statistic) is computed as 
+
+where oij is the observed frequency (i.e., actual count) of the joint event (Ai ,Bj) and eij is the expected frequency of (Ai ,Bj), which can be computed as 
+
+where n is the number of data tuples, count(A = ai) is the number of tuples having value ai for A, and count(B = bj) is the number of tuples having value bj for B. 
+The sum in Eq. (3.1) is computed over all of the r × c cells. 
+8/5/2025
+45
+The χ 2 statistic tests the hypothesis that A and B are independent, that is, there is no correlation between them. 
+The test is based on a significance level, with (r − 1) × (c − 1) degrees of freedom. 
+We illustrate the use of this statistic in Example in the next slide.
+ If the hypothesis can be rejected, then we say that A and B are statistically correlated.
+8/5/2025
+46
+Example-  Correlation analysis of nominal attributes using χ 2 . 
+Suppose that a group of 1500 people was surveyed. 
+The gender of each person was noted.
+ Each person was polled as to whether his or her preferred type of reading material was fiction or nonfiction. 
+Thus, we have two attributes, gender and preferred reading. 
+The observed frequency (or count) of each possible joint event is summarized in the contingency table shown below, where the numbers in parentheses are the expected frequencies. 
+8/5/2025
+47
+The expected frequencies are calculated based on the data distribution for both attributes using Eq. (3.2). 
+Using Eq. (3.2), we can verify the expected frequencies for each cell. 
+For example, the expected frequency for the cell (male, fiction) is 
+
+In any row, the sum of the expected frequencies must equal the total observed frequency for that row, and the sum of the expected frequencies in any column must also equal the total observed frequency for that column.
+
+
+
+8/5/2025
+48
+
+
+For this 2 × 2 table, the degrees of freedom are (2 − 1)(2 − 1) = 1. 
+For 1 degree of freedom, the χ 2 value needed to reject the hypothesis at the 0.001 significance level is 10.828 (taken from the table of upper percentage points of the χ 2 distribution, typically available from any textbook on statistics).
+ Since our computed value is above this, we can reject the hypothesis that gender and preferred reading are independent and conclude that the two attributes are (strongly) correlated for the given group of people.
+8/5/2025
+49
+Correlation Coefficient for Numeric Data 
+For numeric attributes, we can evaluate the correlation between two attributes, A and B, by computing the correlation coefficient (also known as Pearson’s product moment coefficient, named after its inventer, Karl Pearson). 
+This is
+
+where n is the number of tuples, ai and bi are the respective values of A and B in tuple i, A¯ and B¯ are the respective mean values of A and B, σA and σB are the respective standard deviations of A and B , and ∑(aibi) is the sum of the AB cross-product (i.e., for each tuple, the value for A is multiplied by the value for B in that tuple). 
+Note that −1 ≤ rA,B ≤ +1.
+8/5/2025
+50
+If rA,B is greater than 0, then A and B are positively correlated, meaning that the values of A increase as the values of B increase.
+ The higher the value, the stronger the correlation (i.e., the more each attribute implies the other). 
+Hence, a higher value may indicate that A (or B) may be removed as a redundancy.
+If the resulting value is equal to 0, then A and B are independent and there is no correlation between them. 
+If the resulting value is less than 0, then A and B are negatively correlated, where the values of one attribute increase as the values of the other attribute decrease. 
+This means that each attribute discourages the other. 
+Scatter plots can also be used to view correlations between attributes.
+8/5/2025
+51
+Covariance of Numeric Data 
+In probability theory and statistics, correlation and covariance are two similar measures for assessing how much two attributes change together. 
+Consider two numeric attributes A and B, and a set of n observations {(a1,b1),...,(an,bn)}. 
+The mean values of A and B, respectively, are also known as the expected values on A and B, that is,
+8/5/2025
+52
+The covariance between A and B is defined as
+
+If we compare Eq. (3.3) for rA,B (correlation coefficient) with Eq. (3.4) for covariance, we see that
+
+where σA and σB are the standard deviations of A and B, respectively. It can also be shown that
+
+This equation may simplify calculations.
+8/5/2025
+53
+For two attributes A and B that tend to change together, if A is larger than A¯ (the expected value of A), then B is likely to be larger than B¯ (the expected value of B).
+ Therefore, the covariance between A and B is positive. 
+On the other hand, if one of the attributes tends to be above its expected value when the other attribute is below its expected value, then the covariance of A and B is negative.
+ If A and B are independent (i.e., they do not have correlation), then E(A · B) = E(A)· E(B). 
+Therefore, the covariance is Cov(A,B) = E(A · B) − A¯ B¯ = E(A)· E(B) − A¯ B¯ = 0.
+ However, the converse is not true. 
+Some pairs of random variables (attributes) may have a covariance of 0 but are not independent. 
+Only under some additional assumptions (e.g., the data follow multivariate normal distributions) does a covariance of 0 imply independence.
+8/5/2025
+54
+Example - Covariance analysis of numeric attributes. 
+Consider Table below, which presents a simplified example of stock prices observed at five time points for AllElectronics and HighTech, a high-tech company.
+
+
+ If the stocks are affected by the same industry trends, will their prices rise or fall together?
+8/5/2025
+55
+
+
+
+
+Therefore, given the positive covariance we can say that stock prices for both companies rise together.
+8/5/2025
+56
+Tuple Duplication
+In addition to detecting redundancies between attributes, duplication should also be detected at the tuple level (e.g., where there are two or more identical tuples for a given unique data entry case).
+The use of denormalized tables (often done to improve performance by avoiding joins) is another source of data redundancy.
+Inconsistencies often arise between various duplicates, due to inaccurate data entry or updating some but not all data occurrences. 
+For example, if a purchase order database contains attributes for the purchaser’s name and address instead of a key to this information in a purchaser database, discrepancies can occur, such as the same purchaser’s name appearing with different addresses within the purchase order database.
+8/5/2025
+57
+Data Value Conflict Detection and Resolution 
+Data integration also involves the detection and resolution of data value conflicts. 
+For example, for the same real-world entity, attribute values from different sources may differ. 
+This may be due to differences in representation, scaling, or encoding. 
+For instance, a weight attribute may be stored in metric units in one system and British imperial units in another.
+For a hotel chain, the price of rooms in different cities may involve not only different currencies but also different services (e.g., free breakfast) and taxes. 
+When exchanging information between schools, for example, each school may have its own curriculum and grading scheme. 
+8/5/2025
+58
+One university may adopt a quarter system, offer three courses on database systems, and assign grades from A+ to F, whereas another may adopt a semester system, offer two courses on databases, and assign grades from 1 to 10. 
+It is difficult to work out precise course-to-grade transformation rules between the two universities, making information exchange difficult. 
+Attributes may also differ on the abstraction level, where an attribute in one system is recorded at, say, a lower abstraction level than the “same” attribute in another. 
+For example, the total sales in one database may refer to one branch of All Electronics, while an attribute of the same name in another database may refer to the total sales for All Electronics stores in a given region. 
+8/5/2025
+59
+Data Reduction
+ Imagine that you have selected data from the AllElectronics data warehouse for analysis. 
+The data set will likely be huge! Complex data analysis and mining on huge amounts of data can take a long time, making such analysis impractical or infeasible.
+ Data reduction techniques can be applied to obtain a reduced representation of the dataset that is much smaller in volume, yet loosely maintains the integrity of the original data. 
+That is, mining on the reduced data set should be more efﬁcient yet produce the same analytical results.
+8/5/2025
+60
+Overview of Data Reduction Strategies 
+Data reduction strategies include dimensionality reduction, numerosity reduction, and data compression.
+Dimensionality reduction is the process of reducing the number of random variables or attributes under consideration. 
+In Dimensionality reduction data encoding or transformations are applied so as to  obtain a reduced or compressed representation of the original data.
+Dimensionality reduction methods include wavelet transforms and principal components analysis, which transform or project the original data onto a smaller space.
+Attribute subset selection is a method of dimensionality reduction in which irrelevant, weakly relevant, or redundant attributes or dimensions are detected and removed. 
+8/5/2025
+61
+Numerosity reduction techniques replace the original data volume by alternative, smaller forms of data representation. 
+Dimensionality reduction and numerosity reduction techniques can be considered forms of data compression. 
+There are many other ways of organizing methods of data reduction. 
+The computational time spent on data reduction should not outweigh or “erase” the time saved by mining on a reduced data set size.
+8/5/2025
+62
+Wavelet Transforms 
+The discrete wavelet transform (DWT) is a linear signal processing technique that, when applied to a data vector X, transforms it to a numerically different vector, X1 , of wavelet coefficients. 
+The two vectors are of the same length. 
+When applying this technique to data reduction, we consider each tuple as an n-dimensional data vector, that is, X = (x1,x2,...,xn), depicting n measurements made on the tuple from n database attributes.
+ “How can this technique be useful for data reduction if the wavelet transformed data are of the same length as the original data?” 
+8/5/2025
+63
+The usefulness lies in the fact that the wavelet transformed data can be truncated. 
+A compressed approximation of the data can be retained by storing only a small fraction of the strongest of the wavelet coefficients. 
+For example, all wavelet coefficients larger than some user-specified threshold can be retained. 
+All other coefficients are set to 0. 
+The resulting data representation is therefore very sparse, so that operations that can take advantage of data sparsity are computationally very fast if performed in wavelet space.
+ The technique also works to remove noise without smoothing out the main features of the data, making it effective for data  cleaning as well.
+8/5/2025
+64
+Principal Components Analysis
+Suppose that the data to be reduced consist of tuples or data vectors described by n attributes or dimensions. 
+Principal components analysis (PCA; also called the Karhunen-Loeve, or K-L, method) searches for k n-dimensional orthogonal vectors that can best be used to represent the data, where k≤n. 
+The original data are thus projected onto a much smaller space, resulting in dimensionality reduction. 
+8/5/2025
+65
+
+PCA often reveals relationships that were not previously suspected and thereby allows interpretations that would not ordinarily result. 
+The basic procedure is as follows:
+The input data are normalized, so that each attribute falls within the same  range. This step helps ensure that attributes with large domains will not dominate attributes with smaller domains. 
+PCA computes k orthonormal vectors that provide a basis for the normalized input data. These are unit vectors that each point in a direction perpendicular to the others. These vectors are referred to as the principal components. The input data are a linear combination of the principal components.
+
+
+ 
+
+
+
+8/5/2025
+66
+The principal components are sorted in order of decreasing “signiﬁcance” or strength. The principal components essentially serve as a new set of axes for the data, providing important information about variance. That is, the sorted axes are such that the ﬁrst axis shows the most variance among the data, the second axis shows the next highest variance, and so on. For example, Figure below shows the ﬁrst two principal components,Y1 and Y2,for the given set of data originally mapped to the axes X1 and X2. This information helps identify groups or patterns within the data.
+8/5/2025
+67
+Because the components are sorted in decreasing order of “signiﬁcance”, the data size can be reduced by eliminating the weaker components, that is, those with low variance. Using the strongest principal components, it should be possible to reconstruct a good approximation of the original data.
+PCA can be applied to ordered and unordered attributes, and can handle sparse data and skewed data. 
+Principal components may be used as inputs to multiple regression and cluster analysis.
+ In comparison with wavelet transforms, PCA tends to be better at handling sparse data, whereas wavelet transforms are more suitable for data of high dimensionality.
+8/5/2025
+68
+Attribute Subset Selection
+Data sets for analysis may contain hundreds of attributes, many of which may be irrelevant to the mining task or redundant. 
+For example, if the task is to classify customers based on whether or not they are likely to purchase a popular new CD at AllElectronics when notiﬁed of a sale, attributes such as the customer’s telephone number are likely to be irrelevant, unlike attributes such as age or music taste.
+Although it may be possible for a domain expert to pick out some of the useful attributes, this can be a difﬁcult and time consuming task, especially when the data’s behavior is not well known.
+8/5/2025
+69
+Leaving out relevant attributes or keeping irrelevant attributes may be detrimental(harmful), causing confusion for the mining algorithm employed. 
+This can result in discovered patterns of poor quality. 
+In addition, the added volume of irrelevant or redundant attributes can slow down the mining process.
+Attribute subset selection reduces the data set size by removing irrelevant or redundant attributes (or dimensions). 
+The goal of attribute subset selection is to ﬁnd a minimum set of attributes such that the resulting probability distribution of the data classes is as close as possible to the original distribution obtained using all attributes. 
+Mining on a reduced set of attributes has an additional beneﬁt: It reduces the number of attributes appearing in the discovered patterns, helping to make the patterns easier to understand. 
+
+8/5/2025
+70
+“How can we ﬁnd a ‘good’ subset of the original attributes?” 
+For n attributes, there are 2n possible subsets.
+An exhaustive search for the optimal subset of attributes can be prohibitively expensive, especially as n and the number of data classes increase. 
+Therefore, heuristic methods that explore a reduced search space are commonly used for attribute subset selection. 
+The “best” (and “worst”) attributes are typically determined using tests of statistical signiﬁcance, which assume that the attributes are independent of one another. 
+Many other attribute evaluation measures can be used such as the information gain and Gini index measures used in building decision trees for classiﬁcation. 
+8/5/2025
+71
+Basic heuristic methods of attribute subset selection include the techniques that follow, some of which are illustrated in Figure below.
+
+8/5/2025
+72
+Stepwise forward selection: The procedure starts with an empty set of attributes as the reduced set. The best of the original attributes is determined and added to the reduced set. At each subsequent iteration or step, the best of the remaining original attributes is added to the set.
+Stepwise backward elimination: The procedure starts with the full set of attributes. At each step, it removes the worst attribute remaining in the set. 
+Combination of forward selection and backward elimination: The stepwise forward selection and backward elimination methods can be combined so that, at each step, the procedure selects the best attribute and removes the worst from among the remaining attributes.
+8/5/2025
+73
+Decision tree induction: Decision tree algorithms (e.g., ID3, C4.5, and CART) were originally intended for classiﬁcation. Decision tree induction constructs a ﬂowchart like structure where each internal (nonleaf) node denotes a test on an attribute, each branch corresponds to an outcome of the test, and each external(leaf)node denotes a class prediction. At each node, the algorithm chooses the “best” attribute to partition the data into individual classes. When decision tree induction is used for attribute subset selection, a tree is constructed from the given data. All attributes that do not appear in the tree are assumed to be irrelevant. The set of attributes appearing in the tree form the reduced subset of attributes.
+8/5/2025
+74
+The stopping criteria for the methods may vary. 
+The procedure may employ a threshold on the measure used to determine when to stop the attribute selection process. 
+In some cases, we may want to create new attributes based on others. 
+Such attribute construction can help improve accuracy and understanding of structure in high dimensional data.
+For example, we may wish to add the attribute area based on the attributes height and width. 
+By combining attributes, attribute construction can discover missing information about the relationships between data attributes that can be useful for knowledge discovery.
+8/5/2025
+75
+ Histograms 
+Histograms use binning to approximate data distributions and are a popular form of data reduction.
+A histogram for an attribute, A, partitions the data distribution of A into disjoint subsets, referred to as buckets or bins.
+If each bucket represents only a single attribute–value/frequency pair, the buckets are called singleton buckets. 
+Often, buckets instead represent continuous ranges for the given attribute.
+Example- Histograms. The following data are a list of AllElectronics prices for commonly sold items (rounded to the nearest dollar). The numbers have been sorted: 1, 1, 5, 5, 5, 5, 5, 8, 8, 10, 10, 10, 10, 12, 14, 14, 14, 15, 15, 15, 15, 15, 15, 18, 18, 18, 18, 18, 18, 18, 18, 20, 20, 20, 20, 20, 20, 20, 21, 21, 21, 21, 25, 25, 25, 25, 25, 28, 28, 30, 30, 30. 
+8/5/2025
+76
+Figure below shows a histogram for the data using singleton buckets. 
+
+
+
+8/5/2025
+77
+To further reduce the data, it is common to have each bucket denote a continuous value range for the given attribute. 
+In Figure below, each bucket represents a different $10 range for price.
+
+8/5/2025
+78
+“How are the buckets determined and the attribute values partitioned?” There are several partitioning rules, including the following:
+Equal-width: In an equal-width histogram, the width of each bucket range is uniform (e.g., the width of $10 for the buckets in Figure). 
+Equal-frequency(or equal-depth):In an equal-frequency histogram, the buckets are created so that, roughly, the frequency of each bucket is constant (i.e., each bucket contains roughly the same number of contiguous data samples).
+Histograms are highly effective at approximating both sparse and dense data, as well as highly skewed and uniform data.
+ The histograms described before for single attributes can be extended for multiple attributes.
+8/5/2025
+79
+Multidimensional histograms can capture dependencies between attributes. 
+These histograms have been found effective in approximating data with up to ﬁve attributes. 
+More studies are needed regarding the effectiveness of multidimensional histograms for high dimensionalities. 
+Singleton buckets are useful for storing high-frequency outliers.
+8/5/2025
+80
+ Clustering 
+Clustering techniques consider data tuples as objects. 
+They partition the objects into groups, or clusters, so that objects within a cluster are “similar” to one another and “dissimilar” to objects in other clusters. 
+Similarity is commonly deﬁned in terms of how “close” the objects are in space, based on a distance function. 
+The “quality” of a cluster may be represented by its diameter, the maximum distance between any two objects in the cluster. 
+Centroid distance is an alternative measure of cluster quality and is deﬁned as the average distance of each cluster object from the cluster centroid (denoting the “average object,” or average point in space for the cluster). 
+8/5/2025
+81
+Figure below shows a 2-D plot of customer data with respect to customer locations in a city. 
+
+
+
+
+Three data clusters are visible.
+8/5/2025
+82
+In data reduction, the cluster representations of the data are used to replace the actual data. 
+The effectiveness of this technique depends on the data’s nature. 
+There are many measures for deﬁning clusters and cluster quality. 
+8/5/2025
+83
+ Sampling 
+Simple random sampling refers to the sampling technique in which each and every item of the population is having an equal chance of being included in the sample.
+Sampling can be used as a data reduction technique because it allows a large data set to be represented by a much smaller random data sample (or subset). 
+Suppose that a large dataset, D, contains N tuples.
+Let’s look at the most common ways that we could sample D for data reduction, as illustrated in Figure below.
+
+
+
+
+8/5/2025
+84
+8/5/2025
+85
+Simple random sample without replacement (SRSWOR) of size s: This is created by drawing s of the N tuples from D (s < N), where the probability of drawing any tuple in D is 1/N, that is, all tuples are equally likely to be sampled.
+ Simple random sample with replacement (SRSWR) of size s: This is similar to SRSWOR, except that each time a tuple is drawn from D, it is recorded and then replaced. That is, after a tuple is drawn, it is placed back in D so that it may be drawn again. 
+Cluster sample: If the tuples in D are grouped into M mutually disjoint “clusters,” then an SRS of s clusters can be obtained, where s < M. For example, tuples in a database are usually retrieved a page at a time, so that each page can be considered a cluster. A reduced data representation can be obtained by applying, say, SRSWOR to the pages, resulting in a cluster sample of the tuples. 
+8/5/2025
+86
+Stratiﬁed sample: If D is divided into mutually disjoint parts called strata, a stratiﬁed sample of D is generated by obtaining an SRS at each stratum. This helps ensure a representative sample, especially when the data are skewed. For example, a stratiﬁed sample may be obtained from customer data, where a stratum is created for each customer age group. In this way, the age group having the smallest number of customers will be sure to be represented.
+An advantage of sampling for data reduction is that the cost of obtaining a sample is proportional to the size of the sample, s, as opposed to N, the data set size. 
+Hence, sampling complexity is potentially sub-linear to the size of the data.
+Other data reduction techniques can require at least one complete pass through D. 
+
+8/5/2025
+87
+When applied to data reduction, sampling is most commonly used to estimate the answer to an aggregate query.
+ It is possible (using the central limit theorem) to determine a sufﬁcient sample size for estimating a given function within a speciﬁed degree of error. 
+This sample size, s, may be extremely small in comparison to N.
+ Sampling is a natural choice for the progressive reﬁnement of a reduced data set. 
+Such a set can be further reﬁned by simply increasing the sample size.
+8/5/2025
+88
+Data Cube Aggregation
+Imagine that you have collected the data for your analysis. 
+These data consist of the AllElectronics sales per quarter, for the years 2008 to 2010. 
+You are, however, interested in the annual sales (total per year), rather than the total per quarter.
+ Thus, the data can be aggregated so that the resulting data summarize the total sales per year instead of per quarter. 
+The resulting data set is smaller in volume, without loss of information necessary for the analysis task. 
+8/5/2025
+89
+This aggregation is illustrated in Figure below. 
+
+
+
+ Data cubes store multidimensional aggregated information
+
+8/5/2025
+90
+ For example, Figure below shows a data cube for multidimensional analysis of sales data with respect to annual sales per item type for each AllElectronics branch.
+
+
+Each cell holds an aggregate data value, corresponding to the data point in multidimensional space. 
+Concept hierarchies may exist for each attribute, allowing the analysis of data at multiple abstraction levels. 
+For example, a hierarchy for branch could allow branches to be grouped into regions, based on their address. 
+8/5/2025
+91
+  
+Data cubes provide fast access to precomputed, summarized data, thereby beneﬁting online analytical processing as well as data mining. 
+The cube created at the lowest abstraction level is referred to as the base cuboid. 
+ The lowest level should be usable, or useful for the analysis.
+A cube at the highest level of abstraction is the apex cuboid. 
+For the sales data in Figure in the cuboid shown, the apex cuboid would give one total—the total sales for all three years, for all item types, and for all branches. 
+Data cubes created for varying levels of abstraction are often referred to as cuboids, so that a data cube may instead refer to a lattice of cuboids. 
+Each higher abstraction level further reduces the resulting data size. 
+When replying to data mining requests, the smallest available cuboid relevant to the given task should be used. 
+
+8/5/2025
+92
+Data Transformation and Data Discretization 
+In this preprocessing step, the data are transformed or consolidated so that the resulting mining process may be more efﬁcient, and the patterns found may be easier to understand.
+Data discretization, is another form of data transformation.
+8/5/2025
+93
+Data Transformation Strategies Overview
+In data transformation, the data are transformed or consolidated into forms appropriate for mining. 
+Strategies for data transformation include the following:
+ Smoothing, which works to remove noise from the data. Techniques include binning, regression, and clustering.
+Attribute construction (or feature construction), where new attributes are constructed and added from the given set of attributes to help the mining process. 
+Aggregation, where summary or aggregation operations are applied to the data. For example, the daily sales data may be aggregated so as to compute monthly and annual total amounts. 
+Normalization, where the attribute data are scaled so as to fall within a smaller range, such as−1.0 to 1.0, or 0.0 to 1.0. 
+8/5/2025
+94
+Concept hierarchy generation for nominal data, where attributes such as street can be generalized to higher-level concepts, like city or country. Many hierarchies for nominal attributes are implicit within the database schema and can be automatically deﬁned at the schema deﬁnition level.
+Discretization, where the raw values of a numeric attribute (e.g., age) are replaced by interval labels (e.g., 0–10, 11–20, etc.) or conceptual labels (e.g.,youth, adult, senior). The labels, in turn, can be recursively organized into higher-level concepts, resulting in a concept hierarchy for the numeric attribute. 
+
+
+8/5/2025
+95
+Figure below shows a concept hierarchy for the attribute price. More than one concept hierarchy can be deﬁned for the same attribute to accommodate the needs of various users.
+8/5/2025
+96
+8/5/2025
+97
+There is much overlap between the major data preprocessing tasks.
+ The ﬁrst three of these strategies were discussed earlier in this chapter.
+In this section, we therefore concentrate on the latter three strategies.
+Discretization techniques can be categorized based on how the discretization is performed, such as whether it uses class information or which direction it proceeds (i.e., top-down vs. bottom-up).
+ If the discretization process uses class information, then we say it is supervised discretization.
+Otherwise, it is unsupervised.
+If the process starts by ﬁrst ﬁnding one or a few points (called split points or cut points) to split the entire attribute range, and then repeats this recursively on the resulting intervals, it is called top-down discretization or splitting. 
+This contrasts with bottom-up discretization or merging, which starts by considering all of the continuous values as potential split-points, removes some by merging neighborhood values to form intervals, and then recursively applies this process to the resulting intervals. 
+Data discretization and concept hierarchy generation are also forms of data reduction. 
+The raw data are replaced by a smaller number of interval or concept labels. 
+This simpliﬁes the original data and makes the mining more efﬁcient. 
+The resulting patterns mined are typically easier to understand. 
+Concept hierarchies are also useful for mining at multiple abstraction levels. 
+8/5/2025
+98
+Data Transformation by Normalization
+ The measurement unit used can affect the data analysis. 
+For example, changing measurement units from meters to inches for height, or from kilograms to pounds for weight, may lead to very different results.
+In general, expressing an attribute in smaller units will lead to a larger range for that attribute, and thus tend to give such an attribute greater effect or “weight.”
+ To help avoid dependence on the choice of measurement units, the data should be normalized or standardized.
+ This involves transforming the data to fall within a smaller or common range such as [−1,1] or [0.0, 1.0]. 
+Normalizing the data attempts to give all attributes an equal weight. 
+8/5/2025
+99
+Normalization is particularly useful for classiﬁcation algorithms involving neural networks or distance measurements such as nearest-neighbor classiﬁcation and clustering. 
+There are many methods for data normalization. 
+We study min-max normalization, z-score normalization, and normalization by decimal scaling. 
+For our discussion, let A be a numeric attribute with n observed values, v1,v2,...,vn. 
+Min-max normalization performs a linear transformation on the original data.
+Suppose that minA and maxA are the minimum and maximum values of an attribute, A. 
+8/5/2025
+100
+Min-max normalization maps a value, vi, of A to v′i in the range [new_minA, new_ maxA] by computing
+
+Min-max normalization preserves the relationships among the original data values.
+ It will encounter an “out-of-bounds” error if a future input case for normalization falls outside of the original data range for A.
+8/5/2025
+101
+In z-score normalization (or zero-mean normalization), the values for an attribute, A, are normalized based on the mean (i.e.,average) and standard deviation of A.
+A value, vi, of A is normalized to v′i by computing
+where  A¯ and σA are the mean and standard deviation, respectively, of attribute A. 
+This method of normalization is useful when the actual minimum and maximum of attribute A are unknown, or when there are outliers that dominate the min-max normalization.
+
+8/5/2025
+102
+Normalization by decimal scaling normalizes by moving the decimal point of values of attribute A.
+The number of decimal points moved depends on the maximum absolute value of A. 
+A value, vi, of A is normalized to v′i by computing 
+
+
+8/5/2025
+103
+Normalization can change the original data quite a bit, especially when using z-score normalization or decimal scaling.
+It is also necessary to save the normalization parameters (e.g., the mean and standard deviation if using z-score normalization) so that future data can be normalized in a uniform manner.
+Example
+Using min-max and Z-score and decimal scaling(j=3) normalization method, normalize the following set of data
+              (90, 95, 92, 93, 98, 95, 98, 90)
+8/5/2025
+104
+Discretization by Binning 
+Binning is a top-down splitting technique based on a speciﬁed number of bins. 
+These methods are also used as discretization methods for data reduction and concept hierarchy generation.
+For example, attribute values can be discretized by applying equal-width or equal-frequency binning, and then replacing each bin value by the bin mean or median.
+These techniques can be applied recursively to the resulting partitions to generate concept hierarchies. 
+8/5/2025
+105
+Discretization by Histogram Analysis
+A histogram partitions the values of an attribute, A, into disjoint ranges called buckets or bins.
+Various partitioning rules can be used to deﬁne histograms.
+ In an equal-width histogram, for example, the values are partitioned into equal-size partitions or ranges
+With an equal-frequency histogram, the values are partitioned so that, ideally, each partition contains the same number of data tuples.
+8/5/2025
+106
+The histogram analysis algorithm can be applied recursively to each partition in order to automatically generate a multilevel concept hierarchy, with the procedure terminating once a pre-speciﬁed number of concept levels has been reached.
+A minimum interval size can also be used per level to control the recursive procedure. 
+This speciﬁes the minimum width of a partition, or the minimum number of values for each partition at each level. 
+Histograms can also be partitioned based on cluster analysis of the data distribution.
+8/5/2025
+107
+8/5/2025
+108
+Example
+
+Discretization by Cluster, Decision Tree, and Correlation Analyses 
+Clustering, decision tree analysis, and correlation analysis can be used for data discretization. 
+Cluster analysis is a popular data discretization method. 
+A clustering algorithm can be applied to discretize a numeric attribute, A, by partitioning the values of A into clusters or groups. 
+Clustering takes the distribution of A into consideration, as well as the closeness of data points, and therefore is able to produce high-quality discretization results.
+8/5/2025
+109
+Techniques to generate decision trees for classiﬁcation  can be applied to discretization.
+ Such techniques employ a top-down splitting approach. 
+Decision tree approaches to discretization are supervised, that is, they make use of class label information. 
+For example, we may have a data set of patient symptoms (the attributes) where each patient has an associated diagnosis class label. 
+Class distribution information is used in the calculation and determination of split-points (data values for partitioning an attribute range). 
+Because decision tree–based discretization uses class information, it is more likely that the interval boundaries (split-points) are deﬁned to occur in places that may help improve classiﬁcation accuracy.
+8/5/2025
+110
+Measures of correlation can be used for discretization. 
+ChiMerge is a χ2-based discretization method. 
+ChiMerge, employs a bottom-up approach by ﬁnding the best neighboring intervals and then merging them to form larger intervals, recursively. 
+8/5/2025
+111
+Concept Hierarchy Generation for Nominal Data 
+Nominal attributes have a ﬁnite (but possibly large) number of distinct values, with no ordering among the values.
+ Examples include geographic location, job category, and item type. 
+Manual deﬁnition of concept hierarchies can be a tedious and time-consuming task for a user or a domain expert. 
+Fortunately, many hierarchies are implicit within the database schema and can be automatically deﬁned at the schema deﬁnition level. 
+The concept hierarchies can be used to transform the data into multiple levels of granularity. 
+8/5/2025
+112
+For example, data mining patterns regarding sales may be found relating to speciﬁc regions or countries, in addition to individual branch locations.
+We study four methods for the generation of concept hierarchies for nominal data, as follows.
+Speciﬁcation of a partial ordering of attributes explicitly at the schema level by users or experts: Concept hierarchies for nominal attributes or dimensions typically involve a group of attributes. A user or expert can easily deﬁne a concept hierarchy by specifying a partial or total ordering of the attributes at the schema level. For example, suppose that a relational database contains the following group of attributes: street, city, province or state, and country. Similarly, a data warehouse location dimension may contain the same attributes. A hierarchy can be deﬁned by specifying the total ordering among these attributes at the schema level such as street < city < province or state < country.
+8/5/2025
+113
+Speciﬁcation of a portion of a hierarchy by explicit data grouping: This is essentially the manual deﬁnition of a portion of a concept hierarchy. In a large database, it is unrealistic to deﬁne an entire concept hierarchy by explicit value enumeration. On the contrary, we can easily specify explicit groupings for a small portion of intermediate-level data. For example, after specifying that province and country form a hierarchy at the schema level, a user could deﬁne some intermediate levels manually, such as “{Alberta, Saskatchewan, Manitoba} ⊂ prairies Canada” and “{British Columbia, prairies Canada}⊂Western Canada.” 
+Speciﬁcation of a set of attributes, but not of their partial ordering: A user may specify a set of attributes forming a concept hierarchy, but omit to explicitly state their partial ordering. The system can then try to automatically generate the attribute ordering so as to construct a meaningful concept hierarchy. 
+8/5/2025
+114
+Speciﬁcation of only a partial set of attributes: Sometimes a user can be careless when deﬁning a hierarchy, or have only a vague idea about what should be included in a hierarchy. Consequently, the user may have included only a small subset of the relevant attributes in the hierarchy speciﬁcation. For example, instead of including all of the hierarchically relevant attributes for location, the user may have speciﬁed only street and city. To handle such partially speciﬁed hierarchies, it is important to embed data semantics in the database schema so that attributes with tight semantic connections can be pinned together. In this way, the speciﬁcation of one attribute may trigger a whole group of semantically tightly linked attributes to be “dragged in” to form a complete hierarchy. Users, however, should have the option to override this feature, as necessary. 
+8/5/2025
+115
+
+Example- Concept hierarchy generation using pre-speciﬁed semantic connections. 
+Suppose that a data mining expert has pinned together the ﬁve attributes number, street, city, province or state, and country, because they are closely linked semantically regarding the notion of location. 
+If a user were to specify only the attribute city for a hierarchy deﬁning location, the system can automatically drag in all ﬁve semantically related attributes to form a hierarchy. 
+The user may choose to drop any of these attributes (e.g., number and street) from the hierarchy, keeping city as the lowest conceptual level.
+8/5/2025
+116
+
+In summary, information at the schema level and on attribute–value counts can be used to generate concept hierarchies for nominal data. 
+Transforming nominal data with the use of concept hierarchies allows higher-level knowledge patterns to be found. 
+It allows mining at multiple levels of abstraction, which is a common requirement for data mining applications.
+8/5/2025
+117

@@ -1,0 +1,437 @@
+Neuro-RAG: A Neuro Symbolic Framework for
+Transparent and Adaptive Skill Assessment
+Ahamed Al Huzaif Divakar Adharsh
+Information Technology Information Technology Information Technology
+(of Anna University) (of Anna University)) (of Anna University)
+Sri Krishna College of Engineering Sri Krishna College of Engineering and Sri Krishna College of Engineering and
+and Technology Technology Technology
+(of Anna University) (of Anna University) (of Anna University)
+Coimbatore, India Coimbatore, India Coimbatore, India
+huzaifahamed25@gmail.com divakarramesh2004@gmail.com adharsh837@gmail.com
+Abstract - Traditional skill evaluation methods
+A. Motivation
+frequently lack personalization and transparency. In this
+paper, we propose Neuro-RAG, a neuro-symbolic Current evaluation tools are frequently inflexible, generic, and
+Retrieval-Augmented Generation (RAG) framework for unable to adjust to the performance of specific users or take
+professional development and adaptive skill assessment. response cognitive biases into account. Furthermore, the
+The system ensures accuracy in competency extraction majority of platforms only offer numerical scores devoid of
+context or practical advice, which restricts their applicability
+and evaluation by combining symbolic reasoning for rule-
+in professional development. A system that can create
+based validation with neural embeddings for contextual
+structured learning paths based on validated data, offer
+understanding. Neuro-RAG finds skill gaps, aligns them
+personalised feedback, and dynamically assess competencies
+with frameworks such as SFIA, and creates individualized
+is desperately needed. To close this gap, Neuro-RAG was
+learning paths using Bayesian inference and explainable
+created, providing an AI-powered, empirically supported
+AI feedback. It guarantees interpretability and efficiency
+platform that responds to individual user input, detects skill
+by utilizing a scalable microservices architecture with
+gaps, and directs users towards useful development.
+Spring Boot, React, and AI services like OpenAI models. A
+unified neuro-symbolic assessment framework, Bayesian B. Objective
+adaptive testing with cognitive bias detection, and end-to-
+Five interrelated goals are pursued by Neuro-RAG in order to
+end explainable feedback for ongoing skill improvement
+provide efficient skill development and assessment.(i) In order
+are the three primary contributions. to capture a range of competencies, adaptive assessment
+dynamically chooses questions based on past answers and
+Keywords - neuro-symbolic AI, skill assessment, skill gaps. It supports both multiple-choice and free-text
+adaptive testing, personalized learning, Bayesian formats. (ii) To increase assessment accuracy, bias-aware
+inference. evaluation identifies cognitive biases like anchoring or
+overconfidence and modifies skill inference appropriately.
+I INTRODUCTION (iii) Explainable feedback generation offers well-organised,
+comprehensible suggestions with distinct logic chains that
+Assessment platforms that go beyond static testing are make use of validated abilities and materials. (iv) Personalised
+now necessary due to the need for ongoing skill development roadmap creation produces learning pathways that are
+in quickly changing industries. Conventional competency actionable and customised to each person's skill set and
+evaluations usually offer generic, one-size-fits-all tests that professional goals. (v) Longitudinal tracking tracks
+are opaque about their evaluation procedures, don't adjust to performance over several sessions to measure skill
+the unique learner profiles, and provide little useful feedback. development and update competency beliefs over time.
+Accurate skill evaluation and successful professional
+C. Challenges
+development are hampered by these constraints.
+There are various technical obstacles in the development of
+These issues can be addressed by recent developments in
+Neuro-RAG. A strong mechanism that can dynamically
+artificial intelligence, especially large language models
+choose and order questions while recording rich user
+(LLMs) and neuro-symbolic reasoning. However, purely
+interaction data, including text responses, timing, and
+symbolic systems have trouble understanding context, which
+confidence levels, is necessary for adaptive assessment.
+is necessary for personalised assessment, while purely neural
+Variability in user input, incomplete responses, and cognitive
+approaches frequently lack interpretability and can reinforce
+biases must all be taken into consideration for accurate skill
+biases.
+inference. Verification against skill graphs and integration
+In order to provide adaptive, explainable, and bias-aware with a symbolic reasoning layer are necessary to guarantee
+competency assessment, this paper introduces Neuro-RAG, a that LLM-generated feedback is consistent, trustworthy, and
+neuro-symbolic platform that combines the best features of comprehensible. The system must also securely store and
+both paradigms. Neuro-RAG offers individualised learning process vast amounts of session data, protect user privacy, and
+roadmaps based on validated skills and resources by offer a responsive, user-friendly experience across a variety of
+combining Bayesian skill inference, retrieval-augmented environments and devices
+generation (RAG), and symbolic knowledge graphs.Delivering a reliable and useful assessment platform Lastly, Zhang et al. (2023) showed how graph-based
+requires striking a balance between performance, modelling improves gap analysis and candidate profiling by
+explainability, and adaptability. proposing a competency-based evaluation system using
+knowledge graphs [9]. The symbolic skill graph structure of
+II RELATED WORK
+Neuro-RAG, which facilitates the mapping of skills,
+In order to improve interpretability and control, early dependencies, and inferred performance for clear assessment
+neuro-symbolic reasoning systems mainly concentrated on results, is directly enhanced by this method.
+combining deep neural models with logic-based reasoning.
+These works address these capabilities separately, even
+One of the first thorough surveys on neural-symbolic learning
+though they lay significant groundwork for neuro-symbolic
+was presented by Besold et al. in 2017, highlighting the
+reasoning, retrieval-augmented generation, and adaptive
+significance of fusing connectionist learning with symbolic
+assessment. Although explainable systems such as STELLA-
+logic in order to create explainable AI systems [1]. Their
+RAG [3] offer transparent reasoning, they are unable to adjust
+research laid the groundwork for hybrid models that could use
+to the performance of individual learners. On the other hand,
+learning-based mechanisms to maintain flexibility while
+Bayesian inference-based adaptive systems [5] personalise
+reasoning with structured knowledge.
+question selection, but their suggestions are not explicable.
+Building on this, Pascual et al. (2022) showed how Furthermore, skill assessment systems that could profit from
+external document retrieval could greatly enhance factual bias-aware competency estimation have not yet incorporated
+accuracy and contextual grounding in large language models cognitive bias detection, despite the fact that it has been
+by proposing a retrieval-augmented generation (RAG) investigated in LLM outputs [8]. Lastly, although structured
+framework for knowledge-intensive NLP tasks [2]. However, skill modelling is made possible by knowledge graph
+the framework's explainability in real-world assessment approaches [9], resume-based initialisation and dynamic
+domains was limited due to its lack of symbolic validation. belief propagation between assessment sessions are not
+included.
+The STELLA-RAG architecture, a Structured Extractive-
+Latent Retrieval-Augmented Generation model intended for Neuro-RAG overcomes these constraints by combining
+explainable reasoning, was presented by Li et al. (2023) in features that were previously investigated independently into
+order to fill this gap [3]. Their method ensured interpretability a single framework. The system achieves transparency and
+and factual grounding by combining symbolic filters with personalisation by integrating symbolic validation for
+latent retrieval. This idea is highly compatible with the hybrid explainable feedback with Bayesian skill inference for
+neuro-symbolic reasoning framework used in Neuro-RAG, adaptive question selection. Adjusting competency estimates
+where symbolic validation in LLM-generated behavioural based on recognised behavioural patterns like overconfidence
+feedback guarantees contextual accuracy and avoids and anchoring is made possible by the integration of cognitive
+hallucinations. bias detection algorithms, which are especially made for
+assessment contexts. The system also uses retrieval-
+By incorporating symbolic reasoning modules into LLM-
+augmented generation with symbolic grounding to make sure
+driven inference pipelines, Yang and Gao (2023) made
+recommendations refer to validated sources and processes
+significant progress in this area by developing explainable and
+user resumes to initialise skill priors. From resume upload to
+controllable neuro-symbolic systems [4]. Their research
+adaptive assessment to personalised roadmap creation, this
+supported the fundamental design tenets of Neuro-RAG's
+comprehensive approach offers end-to-end functionality—
+explainable assessment engine by showing that hybrid
+capabilities that haven't been shown together in previous
+reasoning greatly increases transparency in AI-driven
+work.
+evaluations.
+Using probabilistic graphical models, Jiang and Lee
+III SYSTEM ARCHITECTURE
+(2022) concurrently introduced a Bayesian skill assessment For adaptive skill evaluation and tailored learning
+framework that allowed for gap estimation and dynamic skill recommendations, the Neuro-RAG platform uses a modular
+inference [5]. The SkillInferenceEngine in Neuro-RAG, architecture that combines neural processing, symbolic
+which spreads beliefs across correlated skill graphs to identify reasoning, and probabilistic inference.
+competency gaps, was inspired by this probabilistic reasoning.
+A. Backend Architecture
+The GPT-4 and Gemini technical reports, published by
+A three-tier design with distinct concern separation is used
+OpenAI (2024) and Google DeepMind (2024), respectively,
+in the backend. RESTful APIs for resume processing, session
+describe how multi-modal and retrieval-augmented systems
+management, and authentication are made available via the
+can be set up for contextual understanding, structured text
+Controller Layer. The neuro-symbolic reasoning engine is
+extraction, and personalised reasoning—essential features that
+implemented at the Service Layer by combining retrieval-
+NeuroRAG uses for resume parsing and adaptive assessment
+augmented generation, symbolic validation, and Bayesian
+[6], [7].
+skill inference. Key services include the ResumeParserService
+To further ensure fairness in AI decision-making, Zhou et (entity extraction and skill graph mapping), the
+al. (2023) investigated cognitive bias detection in LLM- NeuroRAGService (which orchestrates the entire reasoning
+generated outputs, highlighting the necessity of interpretive pipeline), and the SkillInferenceEngine (which estimates
+rule-based scoring [8]. Similar methodology is used by Neuro- Bayesian competency). Using a relational database, the
+RAG which incorporates a cognitive bias analyzer to access
+behavioural tendencies like confirmation bias, anchoring
+bias, and overconfidence.repository layer controls data persistence for user profiles,
+assessment sessions, responses, and skill data.
+B. Frontend and User Interface
+Interactive features for uploading resumes, adaptive tests, and
+visualising learning roadmaps and personalised feedback are
+all included in a single-page application. The interface
+prioritises accessibility, minimal cognitive load, and smooth
+transitions between assessment phases while interacting with
+backend services through REST APIs..
+C. Resume Parsing and Entity Recognition
+Resume parsing uses a two-tiered strategy that combines a
+secondary recognition service for enrichment and fallback
+processing with cloud-based large language model APIs for
+primary entity extraction. Asynchronous NLP processing
+independent of assessment logic is made possible by this
+separation, which also supports low-latency operations across Figure 1.Architecture Diagram
+a variety of document formats and records professional
+experience, education, and skills. IV. DATA FLOW AND USER JOURNEY
+D. Bayesian Skill Inference A. Resume Upload and Parsing
+A resume in PDF, DOCX, or TXT format is uploaded by
+Skills are modelled by the assessment engine as nodes in
+a probabilistic dependency graph, where correlations and the user via the frontend interface to start the Neuro-RAG
+prerequisites are represented by the edges. Evidence from user system. Apache Tika is used by the backend to retrieve the
+responses shows that Bayesian propagation is used to update document's raw text. The Gemini API then processes the
+posterior belief distributions. The inference algorithm extracted text to find structured entities such as experience,
+analyses confidence levels and correlated skill implications education, skills, and other pertinent sections. This data is
+while dynamically choosing questions to maximise arranged into structured data by the ResumeParserService,
+information gain. By maintaining logical consistency and which also gives each extracted skill a confidence score
+referencing validated skills, symbolic validation makes sure before storing it in the ResumeData entity. The basis for skill
+AI-generated feedback avoids hallucinations. inference and adaptive assessment is this structured data.
+E. Learning Roadmap Generation B. Adaptive Assessment Flow
+Three criteria are used in the roadmap generation process The system starts an adaptive assessment session based on
+to rank skill gaps: gap magnitude, evidence strength the user's skill profile after they upload their resume and
+(assessment confidence), and criticality (prerequisite depth). choose a target role. To maximise learning and assessment
+The system defines logical progression milestones by utilising effectiveness, the SkillInferenceEngine dynamically chooses
+dependency relationships. By identifying overconfidence, the most instructive questions and uses probabilistic reasoning
+anchoring, and consistency patterns in responses, a cognitive to pinpoint areas of low confidence. The test includes both
+bias analysis layer modifies skill inference and provides text-based and multiple-choice questions, and it records
+tailored feedback for impartial, fact-based direction. important interaction metrics like confidence levels, typing
+speed, and response time. Every response is captured for later
+F. Neuro-Symbolic Integration
+examination, allowing for the creation of tailored comments
+Three steps make up the integration pipeline's operation: and suggestions for skill improvement.
+Semantic embeddings are used in neural retrieval to help recall
+C. Skill Inference and Gap Analysis
+a wide range of pertinent skills and resources; symbolic
+validation checks facts and prerequisite consistency against The predefined skill graph is used by the
+the knowledge graph; and probabilistic ranking ranks SkillInferenceEngine to spread beliefs across correlated skills.
+suggestions according to Bayesian posterior confidence. This To precisely estimate the user's competency levels, correlation
+phased strategy concurrently produces grounded evidence, strengths between skills—such as dependents, prerequisites,
+explainable transparency, and adaptive personalisation. and category associations—are used. The difference between
+full proficiency and the assessed level is known as the skill
+G. Performance and Deployment
+gap, and it is determined by using data from user responses
+The system employs caching for frequently accessed skill and graph-based correlations to prioritise the gaps. With the
+relationships and precomputed embeddings for knowledge help of this ranking, the system can pinpoint the user's high-
+base items, enabling sub-3-second response latencies for priority areas for improvement, offering useful information
+interactive assessment. Security is implemented through for individualised growth.
+token-based authentication with role-based access control and
+D. Neuro-RAG Feedback Generation
+encryption of sensitive data. Containerized deployment with
+orchestration supports horizontal scaling, while continuous
+integration pipelines maintain system reliability across The Neuro-RAG service generates grounded, customised
+updates. feedback using a hybrid retrieval-augmented generation
+(RAG) methodology. Prior to encoding them using
+lightweight embeddings for similarity-based ranking, thesystem retrieves candidate knowledge items, such as skills, B. Bayesian Skill Inference
+dependencies, and learning resources. These candidates are
+then filtered by the symbolic layer to guarantee that only The inference engine uses evidence-weighted Bayesian
+accurate and pertinent data is taken into account. Last but not propagation to update competency beliefs. The algorithm
+least, OpenAI GPT produces structured feedback based on scores evidence according to correctness, confidence, and
+validated abilities and resources, guaranteeing trustworthy latency for each response, updates the posterior belief for
+and useful suggestions. The dashboard shows this feedback, target skills using P(s|r) ∝ P(r|s)·P(s), and propagates beliefs
+which offers information about skill gaps, learning paths that to correlated skills weighted by decay factor α and graph edge
+are prioritised, and tailored recommendations for strengths. With k being the average node degree, this runs in
+development. O(k) time per response.
+E. Cognitive Bias
+C. Adaptive Question Selection
+In addition to assessing skills, Neuro-RAG evaluates user
+responses for five specific cognitive biases: Overconfidence, The selection of questions respects prerequisites while
+Confirmation, Anchoring, Availability Heuristic, and optimising information gain. The algorithm calculates the
+Consistency. To identify these biases and gain a better entropy reduction H(S) - E[H(S|q)] for candidate questions,
+understanding of the user's decision-making processes, a combines it with difficulty matching (to match user level) and
+rule-based algorithm with evidence scoring is used. Users can
+gap priority (to target low-confidence skills), and then
+identify areas where cognitive tendencies may impact
+chooses the question with the highest score. When the
+performance and be directed towards more objective skill
+question budget is depleted or the belief entropy drops below
+development strategies by using the bias analysis results,
+a certain point, the assessment is over.
+which are integrated into the dashboard.
+D. Cognitive Bias Detection
+Rule-based scoring identifies five types of bias: Anchoring
+identifies the enduring impact of early responses;
+overconfidence quantifies the difference between confidence
+and accuracy; Confirmation bias contrasts performance on
+novel skills with resume-matched skills; The availability
+heuristic detects an overemphasis on current subjects, while
+consistency analysis highlights inconsistencies in responses
+pertaining to related skills. Personalised feedback is informed
+by identified biases that modify belief weights.
+Figure 2.Assessment Flow
+V DATA MODEL AND ARCHITECTURE E. Roadmap Generation
+A. Data Model By (1) identifying skills below the competency threshold, (2)
+scoring each gap according to criticality (dependent skill
+Five main entities make up the relational schema used by count), evidence strength, and magnitude, (3) topologically
+Neuro-RAG. Credentials for authentication and profile sorting by prerequisites, (4) retrieving and validating learning
+information are stored in the User entity. AssessmentSession resources using semantic search with symbolic filtering, and
+tracks performance metrics and session metadata while (5) sequencing milestones with estimated completion times,
+connecting users to timestamped evaluation instances. learning paths are created. Following each assessment
+Competencies are modelled by the Skill entity using SFIA session, roadmaps are dynamically updated in response to
+categories, proficiency levels, and graph-based relationships updated engagement signals and beliefs.
+that encode correlations (weighted edges) and prerequisites
+(directed edges). Answers, confidence levels, response VI RESULTS AND PERFORMANCE EVALUATION
+latency, and typing dynamics are all captured by response
+entities. ResumeData contains structured extracts of skills,
+A. Resume Parsing Accuracy
+experience, and education that have been confidently scored
+The accuracy with which skills, education, experience,
+from uploaded documents.
+and personal information are extracted from uploaded
+documents is measured by resume parsing accuracy. For
+Skills form a separate dependency graph, while foreign key structured extraction, the system mainly uses the Google
+relationships between these entities form a connected graph: Gemini API, with HuggingFace NER serving as a backup.
+User → AssessmentSession → Response. Through The formula for calculating accuracy A is
+materialised views for skill relationships and indexed queries, A=N_correct/N_total × 100.
+this dual-graph architecture facilitates both transactional data
+integrity and effective probabilistic inference.where N_"total" is the total number of ground-truth entities Bayesian inference is central to the SkillInferenceEngine
+and N_correct is the number of entities that were correctly for dynamically estimating user competency. Skills are
+extracted. With Hugging Face enriching entities in modeled as nodes in a probabilistic graph, with correlations
+ambiguous or unstructured formats and Gemini correctly representing prerequisites, dependents, and category
+handling 90–95% of cases, Neuro-RAG achieved an average relationships. Posterior beliefs are updated as:
+parsing accuracy of 94.3%.formats 𝑃(responses ∣ 𝑆) ⋅ 𝑃(𝑆)
+𝑖 𝑖
+𝑃(𝑆 ∣ responses) =
+𝑖 𝑃(responses)
+where 𝑃(𝑆)is the prior competency estimate, 𝑃(responses ∣
+𝑖
+B.Skill Precision and Recall
+𝑆)is the likelihood of observed answers, and 𝑃(𝑆 ∣
+𝑖 𝑖
+responses)is the posterior belief. Skill gaps are then
+Skill assessment evaluates the system’s ability to identify calculated as:
+strengths and gaps across correlated skills. Precision 𝑃and Gap(𝑆) = 1.0 − 𝑃(𝑆 ∣ responses)
+𝑖 𝑖
+recall 𝑅are defined as:
+This inference drives adaptive question selection, prioritizing
+𝑇𝑃 𝑇𝑃 low-confidence skills, and informs learning roadmap
+𝑃 = , 𝑅 =
+generation, ensuring that feedback and skill
+𝑇𝑃 + 𝐹𝑃 𝑇𝑃 + 𝐹𝑁
+recommendations are statistically grounded.
+where 𝑇𝑃 is true positive skill identification, 𝐹𝑃 is false E. Retrieval-Augmented Feedback Performance
+positive, and 𝐹𝑁 is false negative. The harmonic mean of
+The quality of retrieval-augmented generation (RAG) for
+precision and recall yields the F1-score:
+personalized feedback was evaluated using Top-K retrieval
+𝑃 ⋅ 𝑅 accuracy and semantic relevance. Cosine similarity between
+𝐹 = 2 × user query embeddings 𝑄 and knowledge embeddings 𝐾 is
+1 𝑃 + 𝑅
+computed as:
+𝑄 ⋅ 𝐾
+cos (𝜃) =
+Neuro-RAG demonstrated precision of 91.7%, recall of ∥ 𝑄 ∥∥ 𝐾 ∥
+89.5%, and F1-score of 90.6%, highlighting robust adaptive
+skill inference. The system achieved Top-3 retrieval accuracy of 92.5%,
+ensuring that AI-generated feedback is contextually relevant
+C. Cognitive Bias Detection and grounded in user-specific data.
+Cognitive bias detection measures the system’s accuracy in F. Overall System Evaluation
+identifying behavioral tendencies such as overconfidence,
+confirmation bias, anchoring, and consistency errors. Using Metric Result
+rule-based scoring with evidence validation, bias detection
+accuracy 𝐵is computed as: Resume Parsing ~94.3 %
+𝑁
+bias_correct Accuracy
+𝐵 = × 100
+𝑁
+bias_total Skill Assessment F1- ~90.6 %
+score
+The framework achieved an average bias detection accuracy
+of 87.2%, effectively identifying patterns influencing user
+Cognitive Bias ~87.2 %
+responses
+Detection
+D. Response Time and Latency
+Average Question ~2.1 sec
+Response Time
+Response time measures the latency from user interaction
+to actionable feedback. End-to-end latency 𝑇 is expressed
+total
+Full Feedback ~3.7 sec
+as:
+𝑇 = 𝑇 + 𝑇 + 𝑇 Generation Time
+total parsing inference feedback
+where 𝑇 parsingis resume extraction time via Gemini API, Top-3 RAG Retrieval ~92.5%
+𝑇 includes skill inference, Bayesian belief Accuracy
+inference
+propagation, and symbolic validation, and 𝑇 is the AI-
+feedback
+based feedback generation time. Neuro-RAG achieved 2.1
+seconds per question-response cycle and 3.7 seconds for full
+resume parsing with feedback, demonstrating low-latency, VII SECURITY AND DEPLOYMENT
+real-time performance.
+A.Security & Performance
+E. Bayesian Inference in Skill Assessment Throughout the evaluation and feedback pipeline, Neuro-
+RAG incorporates a multi-layered security framework toguarantee the availability, confidentiality, and integrity of key metrics, such as resume parsing accuracy, skill assessment
+user data. To safeguard all REST endpoints and implement F1-score, cognitive bias detection, and low-latency feedback
+secure session management, the backend makes use of Spring generation.
+Security. Before gaining access to sensitive functions like
+starting an assessment, uploading a resume, or retrieving
+feedback, each user request is verified and approved. The B. Future
+proper segregation of administrative, evaluator, and
+In the future, the system will be expanded to include multi-
+candidate functionalities is further guaranteed by role-based
+modal assessments that use audio and video inputs to record
+access control, or RBAC. While environment variables and
+behavioural cues, sophisticated knowledge graphs for more
+configuration isolation are used to securely manage API keys
+detailed skill dependency modelling, and federated learning
+for external services like OpenAI and Gemini, sensitive user
+strategies to enhance personalisation while protecting user
+data, such as assessment answers and feedback, is stored in
+privacy. Real-time adaptive feedback based on longitudinal
+MySQL with AES-based encryption.
+user performance could also be advantageous for the system,
+allowing for dynamic roadmap updates and ongoing skill
+B.Deployment
+development. In order to further support intelligent, data-
+The modular design to promote dependability and
+driven competency assessment and personalised learning,
+performance. Docker is used to containerise the Spring Boot-
+these enhancements are intended to improve Neuro-RAG's
+developed backend, allowing for platform-independent
+accuracy, interpretability, and contextual grounding.
+execution and easier environment management. Kubernetes
+can be used to orchestrate the containers for distributed REFERENCES
+scalability and fault tolerance, guaranteeing high availability
+[1] P. F. M. J. Besold, A. d’Avila Garcez, and G. Marcus, “Neural-
+under fluctuating loads. A cloud-based content delivery
+Symbolic Learning and Reasoning: A Survey and Interpretation,” arXiv
+network (CDN) hosts the frontend, which was developed preprint arXiv:1711.03902, 2017.
+using React, to enable low latency, worldwide access, and
+[2] A. Pascual, T. Kwiatkowski, and L. Zettlemoyer, “Retrieval-
+quick client-side rendering. Secure HTTPS channels with Augmented Generation for Knowledge-Intensive NLP Tasks,”
+error-handling features are used for integration with external Proceedings of ACL, 2022.
+services, such as the Gemini API and OpenAI GPT endpoints, [3] Y. Li, S. Lin, and C. Wang, “STELLA-RAG: Structured Extractive-
+in order to preserve business continuity. GitHub Actions is Latent Retrieval-Augmented Generation for Explainable Reasoning,”
+IEEE Transactions on Neural Networks and Learning Systems, 2023.
+used to set up continuous integration and deployment (CI/CD)
+[4] J. Yang and Q. Gao, “Hybrid Neuro-Symbolic Systems for
+pipelines, which automate build validation, testing, and
+Explainable and Controllable AI Reasoning,” Journal of Artificial
+deployment to minimise downtime and preserve steady
+Intelligence Research, vol. 75, pp. 345–368, 2023.
+application performance.
+[5] T. Jiang and M. Lee, “Bayesian Skill Assessment Using
+Probabilistic Graphical Models,” Knowledge-Based Systems, vol. 245,
+VIII CONCLUSION
+pp. 108–121, 2022
+A. Conclusion [6] OpenAI, “GPT-4 Technical Report,” OpenAI Research
+Publication, 2024.
+To provide individualised, adaptive competency evaluations, [7] Google DeepMind, “Gemini: A Multimodal Foundation Model,”
+DeepMind Research Report, 2024.
+the Neuro-RAG framework introduces a novel combination of
+neuro-symbolic reasoning, retrieval-augmented generation, [8] X. Zhou, K. Chen, and F. Wang, “Detecting Cognitive Bias in
+Language Model Outputs: A Rule-Based Evidence Scoring Approach,”
+and Bayesian skill inference. The system achieves high
+Proceedings of NeurIPS, 2023.
+accuracy in skill detection, cognitive bias evaluation, and
+[9] L. Zhang, D. Huang, and H. Zhao, “Competency-Based Evaluation
+learning roadmap generation by utilising a hybrid symbolic Using Knowledge Graphs for Skill Profiling,” Expert Systems with
+validation layer, OpenAI GPT for feedback generation, and Applications, vol. 233, pp. 120–138, 2023.
+Google Gemini API for structured resume parsing. The
+effectiveness of the experimental evaluation for scalable, real-
+time applications is validated by its strong performance across

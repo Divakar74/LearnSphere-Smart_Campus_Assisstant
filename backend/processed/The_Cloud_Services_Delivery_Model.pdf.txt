@@ -1,0 +1,116 @@
+The Cloud Services
+Delivery ModelCloud Services Delivery Model
+A cloud services delivery model is
+commonly referred to as an SPI and falls
+into three generally accepted services
+❑ SOFTWARE AS A SERVICE
+❑ PLATFORM AS A SERVICE
+❑ INFRASTRUCTURE AS A SERVICESoftware-as-a-Service
+❑Software-as-a-Service (SaaS) is a cloud computing model where
+software applications are delivered to users over the internet on a
+subscription or pay-per-use basis, rather than being purchased and
+installed locally on a computer.
+❑Instead of buying software, users “rent” it from a provider. The provider
+hosts, maintains, updates, and secures the software. Users simply
+access it using a web browser or a lightweight client from any device
+with an internet connection.SaaS Works vs Traditional Software
+Aspect Traditional Software SaaS Model
+Installation Installed on local computers Accessed via internet browser
+Subscription or pay-per-use
+Licensing One-time purchase (CapEx)
+(OpEx)
+Hardware required Yes (PCs) No
+Upgrades Manually done by IT teams Automatic, done by vendor
+Device-dependent, limited Anywhere, any authorized
+Access
+locations device
+Maintenance User responsibility Vendor responsibilityKey Benefits
+❑ Cost Efficiency: No investment in software licenses, hardware, or infrastructure.
+Pay only for what you use — through subscription (monthly/yearly) or pay-per-use
+models. Shifts cost from CapEx (Capital Expenditure) to OpEx (Operational
+Expenditure).
+❑ Zero Maintenance and Easy Updates : The vendor handles all updates,
+patches, bug fixes, and maintenance. Users always access the latest version of the
+software. No need for in-house IT teams to manage the software lifecycle.
+❑ Anywhere, Anytime Access: SaaS applications are web-based and accessible via
+browser. Users can work from any location on any authorized device (laptop,
+tablet, phone). Great for remote work, mobile access, and distributed teams.Key Benefits
+❑ Scalability: SaaS applications can scale quickly to meet user demand.
+Organizations can easily add or remove users without infrastructure changes. Cloud
+vendors offer flexible plans to accommodate growth.
+❑ Multitenant Architecture: A single instance of the application serves multiple
+customers, with logical data separation. This reduces cost and improves efficiency
+while maintaining data privacy. Vendors can rapidly deploy features across all
+tenants at once.Saas Examples
+❑ Google Workspace (Gmail, Docs, Drive)
+❑ Microsoft 365
+❑ Salesforce (CRM)
+❑ Zoom (video conferencing)
+❑ Dropbox (file storage)Platform-as-a-Service
+❑Platform-as-a-Service (PaaS) is a cloud computing service that
+provides a platform and environment for developers to build, test,
+deploy, and manage applications—without managing the underlying
+hardware and infrastructure.
+❑The vendor provides tools, servers, storage, databases, and runtime
+environments. Developers focus only on coding and logic, not on
+system setup. Accessible via a web browser, usually in a pay-as-you-
+go model.PaaS Works vs Traditional Software
+Traditional In-House
+Feature PaaS Model
+Development
+Development Tools Installed locally Web-based and cloud-hosted
+Server/Hardware
+Managed by in-house IT team Managed by cloud provider
+Management
+Software Deployment Manual One-click or automated
+Setup Cost High Low (pay-as-you-go)
+Built-in multi-user
+Collaboration Limited, manual sharing
+collaborationKey Benefits
+❑ Cost Efficiency: No need to buy physical hardware or install tools. Pay only for the
+resources and tools you use. Ideal for startups and small teams.
+❑ Faster Application Development : Ready-to-use development tools (e.g., editors,
+frameworks). Reduces setup time. Focus stays on coding, not infrastructure.
+❑ Anywhere, Anytime Access: Developers can code, test, and deploy from
+anywhere via browser. Enables real-time collaboration among teams in different
+locationsKey Benefits
+❑ Scalability: Easily scale applications based on usage and demand. Cloud providers
+manage load balancing and failover.
+❑ Security Maintenance and Automatic Updates : Security, patching, backups, and
+updates handled by vendor. Developers don’t need to worry about infrastructure
+vulnerabilities. Development tools, libraries, and backend platforms are kept up to
+date by the providerPaas Examples
+❑ Google - Google App Engine
+❑ Microsoft - Azure App Services
+❑ Oracle - Oracle Cloud Platform
+❑ Amazon - AWS Elastic BeanstalkInfrastructure-as-a-Service
+❑Infrastructure-as-a-Service (IaaS) is a cloud computing service
+model that delivers virtualized computing resources like servers,
+storage, and networking over the internet.
+❑Users rent infrastructure instead of buying physical hardware. It
+provides the foundation for running operating systems, applications,
+and data storage. The cloud provider manages the physical hardware,
+while the user controls the operating system, software, and apps.IaaS Works vs Traditional Software
+Feature Traditional Hosting IaaS Model
+Infrastructure Setup On-premise hardware Provided virtually by vendor
+Upfront capital investment
+Cost Model Pay-as-you-go (OpEx)
+(CapEx)
+Scalability Fixed capacity Highly scalable on demand
+Vendor maintains
+Maintenance User maintains hardware
+infrastructure
+Deployment Time Slow (weeks or months) Fast (minutes to hours)Key Benefits
+❑ Cost Efficiency: Pay only for what you use (CPU, storage, bandwidth, etc.). Avoids
+large capital expenses on physical hardware.
+❑ Scalability and Flexibility : Scale up or down computing resources instantly based
+on workload. Supports dynamic business needs without hardware limitations.
+❑ No Hardware Maintenance: The cloud provider manages servers, power, cooling,
+and physical security. Reduces the burden on internal IT teams.
+❑ Faster Time to Deploy : Deploy servers and resources in minutes. Enables rapid
+testing, development, and release cycles.Paas Examples
+❑ Google -Google Compute Engine
+❑ Microsoft - Azure Virtual Machines
+❑ Oracle - Oracle Cloud Infrastructure (OCI)
+❑ Amazon - AWS EC2 (Elastic Compute Cloud)
+❑ IBM - IBM Cloud Infrastructure

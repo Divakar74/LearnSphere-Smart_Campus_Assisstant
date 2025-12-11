@@ -1,0 +1,71 @@
+PROJECT THEMES
+Choose ONE project theme from the three options below and build a complete end-to-end
+application.
+Project Theme 1: Smart Campus Assistant
+Business Context
+College students struggle to efficiently study from scattered lecture PDFs, notes, and course
+materials. They need an intelligent assistant to help them learn faster.
+Your Mission: Build and AI assistant that should:
+• Allow students to upload course materials (PDFs, documents, PPTs) with drag-and-
+drop
+• Enable natural language Q&A - students ask questions and get accurate answers
+sourced from their materials
+• Automatically summarize long lecture notes and documents
+• Generate practice quizzes to test knowledge retention
+Suggested Data Sources
+• Student's own notes and materials
+• Wikipedia API for general knowledge
+• NCERT textbooks (publicly available), etc.
+Project Theme 2: SmartDine - Food Discovery Assistant
+Business Context
+Indian college students and young professionals often struggle with food decisions: Where to
+eat? What's good? What fits my mood and budget?
+Your Mission: Build an AI assistant that understands users' cravings and recommends local
+restaurants with intelligent, conversational insights. The application should:
+• Maintain a directory of 15-20 local eateries with details (cuisine, price range, reviews,
+location)
+• Provide a conversational search interface where users can type naturally like
+"something cheesy but not too expensive" or "comfort food after a rough day"
+• Generate smart, contextual recommendations that explain why — "Try Sharma's
+Dhaba because you wanted cheap and filling, and their thali is legendary"
+• Include a "Surprise Me" button for the truly indecisive
+Suggested Data Sources
+• APIs: Google Places API, Foursquare API (free tiers)
+• Manual Data Collection: Create your own dataset
+• Public Datasets: Kaggle, OpenStreetMapProject Theme 3: Career Compass - Job & Career Assistant
+Business Context
+College students often wonder if they qualify for job openings at companies. They need a
+tool that analyzes job requirements, evaluates their fit, and provides actionable guidance.
+Your Mission: Build an AI career assistant that helps students understand their job
+readiness and improve their applications. The application should:
+• Allow students to paste a job description and upload/paste their resume
+• Provide an intelligent match analysis with a visual score or rating (e.g., "Strong Match
+- 8/10")
+• Perform gap analysis: "This role requires 'Docker' and 'AWS' but your resume doesn't
+mention these - consider adding them if you have experience, or highlight relevant
+transferable skills"
+• Offer one actionable, specific tip to strengthen their application (e.g., "Emphasize
+your Python project from college - it aligns with their backend requirements")
+• Support natural language queries like "What skills should I learn for data science
+roles?" or "Am I ready for frontend developer positions?"
+Useful materials
+• Microsoft's Generative AI for Beginners: https://learn.microsoft.com/en-
+us/shows/generative-ai-for-beginners/ (Recommended)
+• DeepLearning.AI Courses (Andrew Ng): https://www.deeplearning.ai/courses/
+• Fast.ai Practical Deep Learning: https://course.fast.ai/
+• Google's Machine Learning Crash Course:
+https://developers.google.com/machine-learning/crash-course
+• LangChain Documentation:
+https://python.langchain.com/docs/get_started/introduction
+• RAG Tutorial by LlamaIndex: https://docs.llamaindex.ai/en/stable/
+Evaluation Criteria
+• Working of the application
+• Thoughtful use of AI/RAG concepts
+• Instructions to setup and execute the application
+NOTE: This is a Proof-Of-Concept project aimed at analyzing your ability to learn and build
+an application. DO NOT include the name “Deltaforge” in the project as it can later be added
+as a project to your portfolio.
+Deliverables
+Your submission must include:
+1. A public GitHub / GitLab repository URL.
+2. A 10-15 minute demo video of your application. The file size should not exceed 1GB.

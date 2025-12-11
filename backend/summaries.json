@@ -1,0 +1,22 @@
+{
+  "2.1_Distributed_File_System.pdf": {
+    "summary": "A Distributed File System (DFS) enables users to access and manage data stored on remote servers as if it were local, facilitating file sharing across a network in a transparent, reliable, and scalable manner. Key characteristics of DFS include transparency, scalability, fault tolerance, concurrency, and security. Various types of DFS exist, including client-server, peer-to-peer, cluster-based, cloud-based, parallel, and object-based systems, each designed to meet different needs for data access and management.",
+    "timestamp": "1765029122",
+    "user_id": "default_user"
+  },
+  "Project_Guidelines___Deltaforge.tech.pdf": {
+    "summary": "The document outlines two project themes for developing end-to-end applications: a Smart Campus Assistant and SmartDine - Food Discovery Assistant. The Smart Campus Assistant aims to help college students efficiently study by allowing them to upload course materials, enabling natural language Q&A, summarizing notes, and generating practice quizzes. Meanwhile, SmartDine focuses on assisting Indian college students and young professionals in making food decisions by recommending local restaurants based on their cravings and providing a conversational search interface.",
+    "timestamp": "1765030000",
+    "user_id": "default_user"
+  },
+  "CONFERENCE_PAPER_2_1.pdf": {
+    "summary": "The document introduces Neuro-RAG, a neuro-symbolic framework designed to enhance skill assessment by integrating symbolic reasoning with neural embeddings for improved accuracy and contextual understanding. This system aims to address the limitations of traditional evaluation methods, which often lack personalization and transparency, by providing structured learning paths and actionable insights based on user performance. Ultimately, Neuro-RAG seeks to create a more adaptive and effective approach to professional development and skill evaluation.",
+    "timestamp": "1765030041",
+    "user_id": "default_user"
+  },
+  "2.7_Distributed_Database_Systems.pdf": {
+    "summary": "A Distributed Database System (DDBS) is a collection of logically interrelated databases distributed across multiple physical locations that appear to the user as a single unified system. Key features include data distribution, location transparency, concurrency control, fault tolerance, and autonomy. Architectures include client-server, peer-to-peer, multi-database, and cloud-based systems. Data distribution types are fragmentation, replication, and allocation. Consistency models range from strong to eventual consistency. Advantages include improved reliability, performance, and scalability, while challenges involve network latency, transaction management, and security.",
+    "timestamp": "1765030050",
+    "user_id": "default_user"
+  }
+}

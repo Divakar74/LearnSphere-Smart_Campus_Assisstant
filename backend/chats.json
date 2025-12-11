@@ -1,0 +1,84 @@
+{
+  "1": [
+    {
+      "id": "chat_1765436355388",
+      "title": "explain about system design in distributed computi",
+      "messages": [
+        {
+          "role": "user",
+          "content": "explain about system design in distributed computing",
+          "timestamp": "2025-12-11T06:55:48.836Z"
+        },
+        {
+          "role": "ai",
+          "content": "System design in distributed computing involves structuring a network of interconnected databases or file systems across multiple physical locations to function as a unified system. This design aims to provide users with seamless access to data while ensuring scalability, fault tolerance, and efficient data management.\n\nIn distributed database systems, different architectures are used to manage data distribution and access. One common architecture is the Client-Server model, where clients send queries to servers that process and return data. This model offers centralized control over data distribution. Another architecture is the Peer-to-Peer model, where nodes act as both clients and servers, collaborating for query execution, providing better fault tolerance and scalability.\n\n```mermaid\ngraph TD\n    A[Client] --> B[Server]\n    B --> A\n```\n\nFor distributed file systems, various types exist, such as Client-Server, Peer-to-Peer, Cluster-Based, and Cloud-Based. Each type offers unique features like transparency, scalability, fault tolerance, and concurrency. An example is the Hadoop Distributed File System (HDFS), designed for storing and managing large datasets across clusters of commodity hardware.\n\n```mermaid\ngraph TD\n    A[Client] --> B[HDFS Cluster]\n    B --> C[Data Node 1]\n    B --> D[Data Node 2]\n```\n\nConsistency models, like Strong Consistency and Eventual Consistency, define how data updates are seen by users and systems in distributed databases. The CAP Theorem highlights the trade-offs between Consistency, Availability, and Partition Tolerance in distributed systems, emphasizing that achieving all three simultaneously is impossible.\n\n```mermaid\ngraph TD\n    A[Consistency] --> B[Availability]\n    A --> C[Partition Tolerance]\n    B --> C\n```\n\nOverall, distributed computing offers advantages like improved reliability, scalability, and modular growth. However, challenges like network latency, distributed transaction management, and maintaining consistency across replicas need to be addressed for successful system design and operation.",
+          "sources": [
+            {
+              "chunk_index": 0,
+              "filename": "2.7_Distributed_Database_Systems.pdf"
+            },
+            {
+              "chunk_index": 0,
+              "filename": "2.7_Distributed_Database_Systems.pdf"
+            },
+            {
+              "chunk_index": 0,
+              "filename": "2.1_Distributed_File_System.pdf"
+            },
+            {
+              "chunk_index": 0,
+              "filename": "2.1_Distributed_File_System.pdf"
+            },
+            {
+              "chunk_index": 1,
+              "filename": "2.7_Distributed_Database_Systems.pdf"
+            },
+            {
+              "chunk_index": 1,
+              "filename": "2.7_Distributed_Database_Systems.pdf"
+            },
+            {
+              "chunk_index": 1,
+              "filename": "The_Cloud_Services_Delivery_Model.pdf"
+            },
+            {
+              "chunk_index": 2,
+              "filename": "2.7_Distributed_Database_Systems.pdf"
+            },
+            {
+              "chunk_index": 2,
+              "filename": "2.7_Distributed_Database_Systems.pdf"
+            },
+            {
+              "chunk_index": 0,
+              "filename": "The_Cloud_Services_Delivery_Model.pdf"
+            }
+          ],
+          "timestamp": "2025-12-11T06:55:57.801Z"
+        },
+        {
+          "role": "user",
+          "content": "can i get a diagram",
+          "timestamp": "2025-12-11T06:56:17.981Z"
+        },
+        {
+          "role": "ai",
+          "content": "Sorry, I encountered an error. Please try again.",
+          "timestamp": "2025-12-11T06:56:19.739Z"
+        }
+      ],
+      "selected_documents": [
+        "2.7_Distributed_Database_Systems.pdf",
+        "2.1_Distributed_File_System.pdf",
+        "infrastructure_security.pdf",
+        "The_Cloud_Services_Delivery_Model.pdf",
+        "CONFERENCE_PAPER_2_1.pdf",
+        "Data_PreprocessingCleaningTransformation.pptx",
+        "Project_Guidelines___Deltaforge.tech.pdf"
+      ],
+      "updated_at": "2025-12-11T12:29:16.008079",
+      "message_count": 4,
+      "created_at": "2025-12-11T12:29:16.008079"
+    }
+  ]
+}
